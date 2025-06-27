@@ -6,6 +6,7 @@ tags: ["Unity", "C#", "dev"]
 ## 1. Inspector
 
 이 글은 마크다운 기반 Next.js 블로그에서 렌더링되는 첫 번째 포스트입니다.
+![이미지](./Hello-Unity/image.png)
 
 ## 2. Game
 

@@ -2,7 +2,8 @@
 import BaseLayout from '@/layouts/baseLayout.astro';
 import { getAllPostPaths } from '@/lib/utils/staticPaths';
 import { getEntry } from 'astro:content';
-import { extractHeadings } from '@/lib/utils/extractHeadings'; // 방금 만든 유틸
+import { extractHeadings } from '@/lib/utils/extractHeadings';
+import './[slug].css'
 
 export async function getStaticPaths() {
   return getAllPostPaths();
@@ -15,9 +16,12 @@ const rendered = await post.render();
 
 const { Content } = rendered;
 const { data, body } = post;
-const headings = extractHeadings(body); // ✅ markdown 기준 자동 목차 추출
+const headings = extractHeadings(body);
 
+// ✅ 이미지 경로 베이스
+//const imageBase = `/posts/${series}/${slug}`;
 ---
+
 <BaseLayout>
   <div class="container mt-5">
     <h1 class="mb-2">{data.title}</h1>
@@ -30,7 +34,7 @@ const headings = extractHeadings(body); // ✅ markdown 기준 자동 목차 추
 
     {headings.length > 0 && (
       <div class="toc mb-4">
-        <h5>📑 목차</h5>
+        <h5 class="text-white">📑 목차</h5>
         <ul>
           {headings.map(({ level, id, text }) => (
             <li class={`level-${level}`}>
@@ -44,35 +48,20 @@ const headings = extractHeadings(body); // ✅ markdown 기준 자동 목차 추
     <hr />
 
     <article class="markdown-body">
-      <Content /> <!-- ✅ HTML 자동 렌더링 -->
+      <Content />
     </article>
+
+    <!-- ✅ 이미지 경로 자동 보정 -->
+    <!-- <script type="module" is:inline>
+      const base = "{imageBase}";
+      document.querySelectorAll('.markdown-body img').forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && !src.startsWith('/') && !src.startsWith('http')) {
+          img.src = `${base}/${src}`;
+        }
+      });
+    </script> -->
   </div>
 
-  <style>
-    .toc {
-      background: #2c2f33;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      font-size: 0.9rem;
-    }
-    .toc ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-    .toc li {
-      margin-bottom: 0.3rem;
-    }
-    .toc li.level-3 {
-      margin-left: 1rem;
-      font-size: 0.85em;
-    }
-    .toc a {
-      color: #ccc;
-      text-decoration: none;
-    }
-    .toc a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  
 </BaseLayout>
