@@ -1,0 +1,45 @@
+:root {
+  --sidebar-bg: #8f7878;
+  --text-color: #fff;
+  --shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+
+}
+
+/* 사이드바 고정 */
+.sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+/* 내부 영역 */
+.sidebar {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 링크 스타일 */
+.sns-icons i {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+.sidebar-menu li {
+  margin: 6px 0;
+}
+.sidebar-menu a,
+
+.page-links a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.sidebar-menu a:hover,
+.page-links a:hover {
+  text-decoration: underline;
+}

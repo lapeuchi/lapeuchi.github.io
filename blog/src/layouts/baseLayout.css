@@ -1,0 +1,47 @@
+:root {
+  --sidebar-width: 250px;
+}
+
+/* 전체 레이아웃 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 본문 영역 */
+main.main-content {
+  margin-left: var(--sidebar-width);
+  flex-grow: 1;
+  padding: 2rem 1rem;
+}
+
+/* 사이드바 전용 (넓을 때만 보임) */
+.sidebar-only {
+  display: block;
+}
+
+/* 네비게이션 전용 (기본은 숨김) */
+.navbar-only {
+  display: none;
+}
+
+/* 📱 반응형 처리 */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  main.main-content {
+    margin-left: 0 !important;
+  }
+
+  .sidebar-only {
+    display: none !important;
+  }
+
+  .navbar-only {
+    display: block !important;
+  }
+}

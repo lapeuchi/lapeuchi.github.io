@@ -1,0 +1,33 @@
+---
+import path from 'path';
+import { marked } from 'marked';
+
+import BaseLayout from '@/layouts/baseLayout.astro';
+import { getAllPostPaths } from '@/lib/utils/staticPaths';
+import { getMarkdownData } from '@/lib/utils/post';
+
+const { params } = Astro;
+const { series, slug } = params;
+
+// 🔍 마크다운 파일 경로
+const data = getMarkdownData(series, slug);
+
+// 🔁 정적 경로 목록
+export async function getStaticPaths() {
+  return getAllPostPaths();
+}
+---
+
+<BaseLayout>
+  <div class="container mt-5">
+    <h1 class="mb-2">{data.title}</h1>
+    <div class="mb-3">
+      {data.tags?.map(tag => (
+        <span class="badge bg-light text-dark me-1">#{tag}</span>
+      ))}
+      <div class="text-dark small mt-1">{data.date}</div>
+    </div>
+    <hr>
+    <div class="markdown-body" set:html={data.content}></div>
+  </div>
+</BaseLayout>

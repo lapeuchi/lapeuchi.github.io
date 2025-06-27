@@ -1,0 +1,51 @@
+---
+import path from 'path';
+import fs from 'fs';
+
+import BaseLayout from '@/layouts/baseLayout.astro';
+import { getAllSeriesPaths } from '@/lib/utils/staticPaths';
+import { getMarkdownDatas } from '@/lib/utils/post';
+
+const { params } = Astro;
+const seriesId = params.series;
+
+const seriesDir = path.join(process.cwd(), 'src/content/posts', seriesId);
+const seriesMetaPath = path.join(seriesDir, '_series.json');
+
+let seriesMeta = { title: seriesId, description: '' };
+if (fs.existsSync(seriesMetaPath)) {
+  seriesMeta = JSON.parse(fs.readFileSync(seriesMetaPath, 'utf-8'));
+}
+
+const posts = getMarkdownDatas(seriesId)
+
+export async function getStaticPaths() {
+  return getAllSeriesPaths();
+}
+---
+
+<BaseLayout>
+  <div class="container mt-5">
+    <h2 class="mb-1">📁 {seriesMeta.title}</h2>
+    {seriesMeta.description && <p class="text-secondary mb-4">{seriesMeta.description}</p>}
+
+    {posts.map(post => (
+      <div class="card bg-dark text-white mb-3">
+        <div class="card-body">
+          <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">
+            {post.title}
+          </a>
+          <div class="mt-1">
+            {post.tags.map(tag => (
+              <span class="badge bg-light text-dark me-1">#{tag}</span>
+            ))}
+          </div>
+          <div class="text-white text-end small">
+            {post.date}
+          </div>
+          
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

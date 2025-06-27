@@ -1,0 +1,26 @@
+---
+import profileImg from '../assets/profile.jpg';
+import BaseLayout from '@/layouts/baseLayout.astro';
+
+---
+
+<BaseLayout>
+  <div class="container mt-5">
+    <div class="text-center mb-5">
+      <img
+        src={profileImg.src}
+        alt="프로필 이미지"
+        width="120"
+        height="120"
+        class="rounded-circle mb-3"
+      />
+      <h2>Lapeuchi</h2>
+      <p class="text-secondary">
+        뭐라할까 나에겐 오직 너만<br />
+        필요할것 같았어 그랬어<br />
+        어느새 나 너없는 시간 익숙해졌고<br />
+        그렇게 널 지켜 볼 수 있게 됐어
+      </p>
+    </div>
+  </div>
+</BaseLayout>
