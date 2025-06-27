@@ -18,10 +18,9 @@ const { Content } = rendered;
 const { data, body } = post;
 const headings = extractHeadings(body);
 
-// ✅ 이미지 경로 베이스
-//const imageBase = `/posts/${series}/${slug}`;
 ---
 
+<title>lapeuchi's DevLog - {data.title}</title>
 <BaseLayout>
   <div class="container mt-5">
     <h1 class="mb-2">{data.title}</h1>
@@ -51,16 +50,6 @@ const headings = extractHeadings(body);
       <Content />
     </article>
 
-    <!-- ✅ 이미지 경로 자동 보정 -->
-    <!-- <script type="module" is:inline>
-      const base = "{imageBase}";
-      document.querySelectorAll('.markdown-body img').forEach(img => {
-        const src = img.getAttribute('src');
-        if (src && !src.startsWith('/') && !src.startsWith('http')) {
-          img.src = `${base}/${src}`;
-        }
-      });
-    </script> -->
   </div>
 
   
