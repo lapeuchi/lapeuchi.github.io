@@ -1,5 +1,4 @@
 ---
-import profile from '@/public/assets/profile.jpg'
 import snsList from '../data/sidebarSNS.json';
 import type { SeriesMap } from '@/lib/types/series';
 
@@ -12,7 +11,7 @@ const { seriesMap } = props;
     <!-- 프로필 -->
     <div class="text-center">
       <img
-        src={profile.src}
+        src="/assets/profile.jpg"
         alt="프로필"
         class="rounded-circle mb-2 mx-auto"
         width={80}
