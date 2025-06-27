@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   //integrations: [react()]
-
+  outDir: 'dist',
+  site: 'https://lapeuchi.github.io',
   base: '/',
-  output: 'static', // 정적 사이트로 빌드
 });
