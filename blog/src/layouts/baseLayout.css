@@ -28,7 +28,7 @@ main.main-content {
 }
 
 /* 📱 반응형 처리 */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   body {
     flex-direction: column;
   }
