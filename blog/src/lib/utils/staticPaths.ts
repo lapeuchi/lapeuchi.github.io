@@ -1,34 +1,19 @@
-import fs from 'fs';
-import path from 'path';
+import { getCollection } from 'astro:content';
 
-export function getAllSeriesPaths() {
-  const postsRoot = path.join(process.cwd(), 'src/content/posts');
-  const seriesList = fs.readdirSync(postsRoot).filter(name =>
-    fs.statSync(path.join(postsRoot, name)).isDirectory()
-  );
+export async function getAllSeriesPaths() {
+  const entries = await getCollection('posts');
+  const seriesSet = new Set(entries.map(entry => entry.slug.split('/')[0]));
 
-  return seriesList.map(series => ({
+  return Array.from(seriesSet).map(series => ({
     params: { series }
   }));
 }
 
-export function getAllPostPaths() {
-  const postsRoot = path.join(process.cwd(), 'src/content/posts');
-  const paths = [];
-
-  const seriesList = fs.readdirSync(postsRoot).filter(name =>
-    fs.statSync(path.join(postsRoot, name)).isDirectory()
-  );
-
-  for (const series of seriesList) {
-    const dir = path.join(postsRoot, series);
-    const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-
-    for (const file of files) {
-      const slug = file.replace(/\.md$/, '');
-      paths.push({ params: { series, slug } });
-    }
-  }
-
-  return paths;
+// ✅ 동적 라우팅용 path 목록
+export async function getAllPostPaths() {
+  const entries = await getCollection('posts');
+  return entries.map(entry => {
+    const [series, slug] = entry.slug.split('/');
+    return { params: { series, slug } };
+  });
 }

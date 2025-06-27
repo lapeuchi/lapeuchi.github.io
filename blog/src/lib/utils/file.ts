@@ -1,12 +1,6 @@
 import fs from 'fs';
+import path from 'path';
 
-export function getCreatedDate(filePath: string): string {
-  const stat = fs.statSync(filePath);
-  
-  const str = stat.birthtime.toISOString()
-
-  return formatDate(str);
-}
 
 export function formatDate(dateStr: string): string {
   const d = new Date(dateStr);
@@ -21,4 +15,11 @@ export function formatDate(dateStr: string): string {
   const min = String(d.getMinutes()).padStart(2, '0');
   const ss = String(d.getSeconds()).padStart(2, '0');
   return `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+}
+
+export function getCreatedDate(entryPath: string): string {
+  const fullPath = path.join(process.cwd(), entryPath); // ✅ 중복 제거
+  const stats = fs.statSync(fullPath);
+
+  return formatDate(stats.birthtime.toISOString());
 }

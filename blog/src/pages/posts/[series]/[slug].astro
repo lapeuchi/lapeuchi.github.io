@@ -1,33 +1,78 @@
 ---
-import path from 'path';
-import { marked } from 'marked';
-
 import BaseLayout from '@/layouts/baseLayout.astro';
 import { getAllPostPaths } from '@/lib/utils/staticPaths';
-import { getMarkdownData } from '@/lib/utils/post';
+import { getEntry } from 'astro:content';
+import { extractHeadings } from '@/lib/utils/extractHeadings'; // 방금 만든 유틸
 
-const { params } = Astro;
-const { series, slug } = params;
-
-// 🔍 마크다운 파일 경로
-const data = getMarkdownData(series, slug);
-
-// 🔁 정적 경로 목록
 export async function getStaticPaths() {
   return getAllPostPaths();
 }
----
 
+const { series, slug } = Astro.params;
+const slugPath = `${series}/${slug}`;
+const post = await getEntry('posts', slugPath);
+const rendered = await post.render();
+
+const { Content } = rendered;
+const { data, body } = post;
+const headings = extractHeadings(body); // ✅ markdown 기준 자동 목차 추출
+
+---
 <BaseLayout>
   <div class="container mt-5">
     <h1 class="mb-2">{data.title}</h1>
+
     <div class="mb-3">
       {data.tags?.map(tag => (
         <span class="badge bg-light text-dark me-1">#{tag}</span>
       ))}
-      <div class="text-dark small mt-1">{data.date}</div>
     </div>
-    <hr>
-    <div class="markdown-body" set:html={data.content}></div>
+
+    {headings.length > 0 && (
+      <div class="toc mb-4">
+        <h5>📑 목차</h5>
+        <ul>
+          {headings.map(({ level, id, text }) => (
+            <li class={`level-${level}`}>
+              <a href={`#${id}`}>{text}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <hr />
+
+    <article class="markdown-body">
+      <Content /> <!-- ✅ HTML 자동 렌더링 -->
+    </article>
   </div>
+
+  <style>
+    .toc {
+      background: #2c2f33;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .toc li {
+      margin-bottom: 0.3rem;
+    }
+    .toc li.level-3 {
+      margin-left: 1rem;
+      font-size: 0.85em;
+    }
+    .toc a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </BaseLayout>

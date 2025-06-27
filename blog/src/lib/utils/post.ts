@@ -1,91 +1,85 @@
-import path from 'path';
-import fs from 'fs';
-import matter from 'gray-matter';
-import yaml from 'js-yaml';
-import { marked } from 'marked';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { getCreatedDate } from './file';
-import type { Post, SeriesMap } from '../types/series'; // 타입들 import
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
 
-// ✅ 특정 시리즈 폴더의 md 파일만 반환
-export function getMarkdownFiles(dir: string): string[] {
-  return fs.readdirSync(dir).filter(file => file.endsWith('.md')).sort();
-}
+export type Post = {
+  slug: string;
+  title: string;
+  tags: string[];
+  date: string;
+  content: string;
+};
 
-// ✅ 전체 게시물 경로 반환 (Dynamic Routing용)
-export function getAllPostPaths(postsRoot: string) {
-  const paths: { params: { series: string; slug: string } }[] = [];
+// 수정된 타입 정의
+type SeriesInfo = {
+  title: string;
+  description?: string;
+  posts: Post[];
+};
 
-  const seriesFolders = fs.readdirSync(postsRoot).filter(name =>
-    fs.statSync(path.join(postsRoot, name)).isDirectory()
-  );
+export type SeriesMap = {
+  [series: string]: SeriesInfo;
+};
 
-  for (const series of seriesFolders) {
-    const dir = path.join(postsRoot, series);
-    const files = getMarkdownFiles(dir);
-
-    for (const file of files) {
-      const slug = file.replace(/\.md$/, '');
-      paths.push({ params: { series, slug } });
-    }
-  }
-
-  return paths;
-}
-
-// ✅ 단일 게시물 데이터 반환
-export function getMarkdownData(series: string, slug: string): Post {
-  const filename = slug.endsWith('.md') ? slug : `${slug}.md`;
-  const filePath = path.join(process.cwd(), 'src/content/posts', series, filename);
-  
-  const { data, content } = matter(fs.readFileSync(filePath, 'utf-8'));
-
-  return {
-    slug: filename.replace(/\.md$/, ''),
-    title: data.title || slug,
-    tags: data.tags || [],
-    date: getCreatedDate(filePath),
-    content
-  };
-}
-
-// ✅ 특정 시리즈에 속한 게시물 목록 반환
-export function getMarkdownDatas(series: string): Post[] {
-  const dir = path.join(process.cwd(), 'src/content/posts', series);
-  const files = getMarkdownFiles(dir);
-
-  return files.map(file => getMarkdownData(series, file));
-}
-
-// 특정 시리즈의 데이터를 반환합니다.
+// ✅ YAML 메타데이터 읽기
 export function getSeriesData(series: string) {
-  const ymlPath = path.join(process.cwd(), 'src/content/posts', '@', series, '.yml');
+  const ymlPath = path.join(process.cwd(), 'src/content/posts', series, '_series.yml');
+  if (!fs.existsSync(ymlPath)) return null;
 
-  if (!fs.existsSync(ymlPath)) 
-      return null;
-
-  const content = fs.readFileSync(ymlPath, 'utf-8');
-  const data = yaml.load(content);
-
-  return data; // 보통 { title: string, description?: string } 형태
+  const raw = fs.readFileSync(ymlPath, 'utf-8');
+  return yaml.load(raw) as { title?: string; description?: string } | null;
 }
 
-// ✅ 시리즈 전체 구조 반환
-export function getPostStructure(): SeriesMap {
-  const postsRoot = path.join(process.cwd(), 'src/content/posts');
-  const seriesFolders = fs.readdirSync(postsRoot).filter(name =>
-    fs.statSync(path.join(postsRoot, name)).isDirectory()
-  );
-
+// ✅ 전체 시리즈 + 게시물 구조 반환
+export async function getPostStructure(): Promise<SeriesMap> {
+  const entries = await getCollection('posts');
   const result: SeriesMap = {};
 
-  for (const series of seriesFolders) {
-    const posts = getMarkdownDatas(series);
+  for (const entry of entries) {
+    const { series } = splitSlug(entry);
 
-    result[series] = {
-      title: series,
-      posts,
-    };
+    if (!result[series]) {
+      const meta = getSeriesData(series);
+      result[series] = {
+        title: meta?.title || series,
+        description: meta?.description || '',
+        posts: [],
+      };
+    }
+
+    result[series].posts.push(toPost(entry));
   }
 
   return result;
+}
+
+// ✅ 특정 시리즈 게시물 목록
+export async function getPostsBySeries(series: string): Promise<Post[]> {
+  const entries = await getCollection('posts');
+  return entries.filter(e => e.slug.startsWith(`${series}/`)).map(toPost);
+}
+
+// ✅ 단일 게시물 정보
+export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'> | undefined> {
+  const fullSlug = `${series}/${slug}`;
+  const entries = await getCollection('posts');
+  return entries.find(e => e.slug === fullSlug);
+}
+
+function splitSlug(entry: CollectionEntry<'posts'>) {
+  const [series, slug] = entry.slug.split('/');
+  return { series, slug };
+}
+
+function toPost(entry: CollectionEntry<'posts'>): Post {
+  const { slug } = splitSlug(entry);
+  return {
+    slug,
+    title: entry.data.title || slug,
+    tags: entry.data.tags || [],
+    date: getCreatedDate(entry.filePath),
+    content: '',
+  };
 }

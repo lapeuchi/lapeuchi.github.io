@@ -1,26 +1,27 @@
 ---
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
 
 import BaseLayout from '@/layouts/baseLayout.astro';
+import { getPostsBySeries } from '@/lib/utils/post';
 import { getAllSeriesPaths } from '@/lib/utils/staticPaths';
-import { getMarkdownDatas } from '@/lib/utils/post';
 
 const { params } = Astro;
 const seriesId = params.series;
 
-const seriesDir = path.join(process.cwd(), 'src/content/posts', seriesId);
-const seriesMetaPath = path.join(seriesDir, '_series.json');
-
+// ✅ _series.json 불러오기
+const seriesMetaPath = path.join(process.cwd(), 'src/content/posts', seriesId, '_series.json');
 let seriesMeta = { title: seriesId, description: '' };
 if (fs.existsSync(seriesMetaPath)) {
   seriesMeta = JSON.parse(fs.readFileSync(seriesMetaPath, 'utf-8'));
 }
 
-const posts = getMarkdownDatas(seriesId)
+// ✅ content collection 기반으로 해당 시리즈 게시물 가져오기
+const posts = await getPostsBySeries(seriesId);
 
+// ✅ 정적 경로 등록
 export async function getStaticPaths() {
-  return getAllSeriesPaths();
+  return getAllSeriesPaths(); // 내부에서 content 기반으로 구성돼 있어야 함
 }
 ---
 
@@ -43,7 +44,6 @@ export async function getStaticPaths() {
           <div class="text-white text-end small">
             {post.date}
           </div>
-          
         </div>
       </div>
     ))}
