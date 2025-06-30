@@ -23,17 +23,13 @@ export type SeriesMap = {
   [series: string]: SeriesInfo;
 };
 
-const contentPath: string = path.join(process.cwd(), 'src/content/posts');
 
 // ✅ YAML 메타데이터 읽기
-export function getSeriesData(series: string) {
-  const ymlPath = path.join(contentPath, series, '@' + series + '.yml');
+export async function getSeriesData(series: string) {
+  const res = await fetch(`/series/${series}.yml`);
+  if (!res.ok) return null;
 
-  console.log(ymlPath);
-  
-  if (!fs.existsSync(ymlPath)) return null;
-
-  const raw = fs.readFileSync(ymlPath, 'utf-8');
+  const raw = await res.text();
   return yaml.load(raw) as { title?: string; description?: string } | null;
 }
 
@@ -46,7 +42,7 @@ export async function getPostStructure(): Promise<SeriesMap> {
     const { series } = splitSlug(entry);
 
     if (!result[series]) {
-      const meta = getSeriesData(series);
+      const meta = await getSeriesData(series); // ✅ 여기 await
       result[series] = {
         title: meta?.title || series,
         description: meta?.description || '',
