@@ -1,51 +1,50 @@
 ---
-import fs from 'fs';
-import path from 'path';
-
 import BaseLayout from '@/layouts/baseLayout.astro';
-import { getPostsBySeries } from '@/lib/utils/post';
+import './[series].css';
+
+import { getPostsBySeries, getSeriesData } from '@/lib/utils/post';
 import { getAllSeriesPaths } from '@/lib/utils/staticPaths';
 
 const { params } = Astro;
 const seriesId = params.series;
 
-// ✅ _series.json 불러오기
-const seriesMetaPath = path.join(process.cwd(), 'src/content/posts', seriesId, '_series.json');
-let seriesMeta = { title: seriesId, description: '' };
-if (fs.existsSync(seriesMetaPath)) {
-  seriesMeta = JSON.parse(fs.readFileSync(seriesMetaPath, 'utf-8'));
-}
-
-// ✅ content collection 기반으로 해당 시리즈 게시물 가져오기
+const seriesMeta = getSeriesData(seriesId) ?? { title: seriesId, description: '' };
 const posts = await getPostsBySeries(seriesId);
 
-// ✅ 정적 경로 등록
 export async function getStaticPaths() {
-  return getAllSeriesPaths(); // 내부에서 content 기반으로 구성돼 있어야 함
+  return getAllSeriesPaths();
 }
 ---
 
 <BaseLayout>
-  <div class="container mt-5">
-    <h2 class="mb-1">📁 {seriesMeta.title}</h2>
-    {seriesMeta.description && <p class="text-secondary mb-4">{seriesMeta.description}</p>}
+  
+  <div class="head">
+    <div class="title">
+      <h2>📁 {seriesMeta.title}</h2>
+      <span class="postLength">- {posts.length}개의 게시물</span>
+    </div>
+  
+    <p class="description">{seriesMeta.description}</p>
+  </div>
+  
+  <hr class="line">
 
-    {posts.map(post => (
-      <div class="card bg-dark text-white mb-3">
-        <div class="card-body">
-          <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">
-            {post.title}
-          </a>
-          <div class="mt-1">
-            {post.tags.map(tag => (
-              <span class="badge bg-light text-dark me-1">#{tag}</span>
-            ))}
-          </div>
-          <div class="text-white text-end small">
-            {post.date}
-          </div>
+  {posts.map(post => (
+    <div class="card bg-dark text-white mb-3">
+      <div class="card-body">
+        <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">
+          {post.title}
+        </a>
+        <div class="mt-1">
+          {post.tags.map(tag => (
+            <span class="badge bg-light text-dark me-1">#{tag}</span>
+          ))}
+        </div>
+        <div class="text-white text-end small">
+          {post.date}
         </div>
       </div>
-    ))}
-  </div>
+    </div>
+  ))}
+  
 </BaseLayout>

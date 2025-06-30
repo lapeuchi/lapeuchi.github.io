@@ -2,12 +2,12 @@
   --sidebar-bg: #8f7878;
   --text-color: #fff;
   --shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-
-
 }
 
-/* 사이드바 고정 */
-.sidebar-wrapper {
+/* 내부 영역 */
+.sidebar {
+  height: 100%;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,27 +19,45 @@
   z-index: 1000;
 }
 
-/* 내부 영역 */
-.sidebar {
-  height: 100%;
-  overflow-y: auto;
+.profile {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.profile .nickname {
+  margin-bottom: 6px;
+}
+
+.profile .email {
+  display: block;
+  margin-bottom: 12px;
 }
 
 /* 링크 스타일 */
 .sns-icons i {
-  font-size: 1.2rem;
+  font-size: 20px;
   color: var(--text-color);
 }
 .sidebar-menu li {
   margin: 6px 0;
 }
-.sidebar-menu a,
 
+.sidebar-menu a,
 .page-links a {
   color: var(--text-color);
   text-decoration: none;
 }
+
 .sidebar-menu a:hover,
 .page-links a:hover {
   text-decoration: underline;
+}
+
+.sidebar-head {
+ 	font-size: 20px
+}
+
+.email {
+  color: inherit;         /* 부모 요소 글자색 따라감 */
+  text-decoration: none;  /* 밑줄 제거 */
 }

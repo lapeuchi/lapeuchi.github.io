@@ -23,9 +23,14 @@ export type SeriesMap = {
   [series: string]: SeriesInfo;
 };
 
+const contentPath: string = path.join(process.cwd(), 'src/content/posts');
+
 // ✅ YAML 메타데이터 읽기
 export function getSeriesData(series: string) {
-  const ymlPath = path.join(process.cwd(), 'src/content/posts', series, '_series.yml');
+  const ymlPath = path.join(contentPath, series, '@' + series + '.yml');
+
+  console.log(ymlPath);
+  
   if (!fs.existsSync(ymlPath)) return null;
 
   const raw = fs.readFileSync(ymlPath, 'utf-8');

@@ -6,55 +6,54 @@ const props = Astro.props as { seriesMap: SeriesMap };
 const { seriesMap } = props;
 ---
 
-<div class="sidebar-wrapper">
-  <div class="sidebar p-3 d-flex flex-column h-100">
-    <!-- 프로필 -->
-    <div class="text-center">
-      <img
-        src="/assets/profile.jpg"
-        alt="프로필"
-        class="rounded-circle mb-2 mx-auto"
-        width={80}
-        height={80}
-      />
-      <h5 class="nickname mb-1">lapeuchi</h5>
-      <a class="email-link mb-3" href="mailto:lapeuchi@email.com">
-        lapeuchi@email.com
-      </a>
-      <div class="row row-cols-3 g-2 justify-content-center sns-icons mb-3">
-        {snsList.map((sns, idx) => (
-          <div class="col text-center">
-            <a href={sns.url} target="_blank" rel="noreferrer">
-              <i class={`bi ${sns.icon}`}></i>
-            </a>
-          </div>
-        ))}
-      </div>
+<div class="sidebar p-3 d-flex flex-column">
+  <!-- 프로필 -->
+
+  <div class="profile">
+    <img
+      src="/assets/profile.jpg"
+      alt="프로필"
+      class="rounded-circle mb-2 mx-auto"
+      width={80}
+      height={80}
+    />
+    <h5 class="nickname">lapeuchi</h5>
+    <a class="email" href="mailto:lapeuchi@email.com">
+      lapeuchi@email.com
+    </a>
+    <div class="sns-icons row row-cols-3 g-2">
+      {snsList.map((sns) => (
+        <div class="col text-center">
+          <a href={sns.url} target="_blank" rel="noreferrer">
+            <i class={`bi ${sns.icon}`}></i>
+          </a>
+        </div>
+      ))}
     </div>
+  </div>
 
-    <hr />
+  <hr />
 
-    <div>
-      <h4>📦 페이지</h4>
-      <ul class="list-unstyled mt-3 page-links">
-        <li><a href="/">🏠 홈</a></li>
-        <li><a href="/postList">🗂️ 게시물 목록</a></li>
-      </ul>
-    </div>
+  <div class="sidebar-menu">
+    <h4 class="sidebar-head">📦 페이지</h4>
+    <ul>
+      <li><a href="/">🏠 홈</a></li>
+      <li><a href="/postList">🗂️ 게시물 목록</a></li>
+    </ul>
+  </div>
 
-    <hr />
+  <hr />
 
-    <div class="text-start">
-      <h4>📦 시리즈</h4>
-      <ul class="sidebar-menu mb-0">
-        {Object.entries(seriesMap).map(([id, s]) => (
-          <li>
-            <a href={`/posts/${id}`}>
-              {s.title} <small>({s.posts.length})</small>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+  <div class="sidebar-menu">
+    <h4 class="sidebar-head">📦 시리즈</h4>
+    <ul>
+      {Object.entries(seriesMap).map(([id, s]) => (
+        <li>
+          <a href={`/posts/${id}`}>
+            {s.title} <small>({s.posts.length})</small>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </div>

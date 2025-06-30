@@ -19,40 +19,38 @@ const { data, body } = post;
 const headings = extractHeadings(body);
 
 ---
-<head>
+
 <title>lapeuchi's DevLog - {data.title}</title>
-</head>
 
 <BaseLayout>
-  <div class="container mt-5">
-    <h1 class="mb-2">{data.title}</h1>
+  
+  <h1 class="mb-2">{data.title}</h1>
 
-    <div class="mb-3">
-      {data.tags?.map(tag => (
-        <span class="badge bg-light text-dark me-1">#{tag}</span>
-      ))}
-    </div>
-
-    {headings.length > 0 && (
-      <div class="toc mb-4">
-        <h5 class="text-white">📑 목차</h5>
-        <ul>
-          {headings.map(({ level, id, text }) => (
-            <li class={`level-${level}`}>
-              <a href={`#${id}`}>{text}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
-
-    <hr />
-
-    <article class="markdown-body">
-      <Content />
-    </article>
-
+  <div class="mb-3">
+    {data.tags?.map(tag => (
+      <span class="badge bg-light text-dark me-1">#{tag}</span>
+    ))}
   </div>
+
+  {headings.length > 0 && (
+    <div class="toc mb-4">
+      <h5 class="text-white">📑 목차</h5>
+      <ul>
+        {headings.map(({ level, id, text }) => (
+          <li class={`level-${level}`}>
+            <a href={`#${id}`}>{text}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <hr />
+
+  <article class="markdown-body">
+    <Content />
+  </article>
+
 
   
 </BaseLayout>
