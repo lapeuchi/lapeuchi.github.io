@@ -24,16 +24,22 @@ export type SeriesMap = {
 };
 
 
-// ✅ YAML 메타데이터 읽기
+// YAML 메타데이터 읽기
 export function getSeriesData(series: string) {
   const filePath = path.join(process.cwd(), 'public', 'series', `${series}.yml`);
-  if (!fs.existsSync(filePath)) return null;
+  console.log('[🔍 YAML 경로]', filePath);
+
+  if (!fs.existsSync(filePath)) {
+    console.warn('[❌ YAML 없음]', filePath);
+    return null;
+  }
 
   const raw = fs.readFileSync(filePath, 'utf-8');
+  console.log('[✅ YAML 읽음]', raw);
   return yaml.load(raw) as { title?: string; description?: string } | null;
 }
 
-// ✅ 전체 시리즈 + 게시물 구조 반환
+// 전체 시리즈 + 게시물 구조 반환
 export async function getPostStructure(): Promise<SeriesMap> {
   const entries = await getCollection('posts');
   const result: SeriesMap = {};
@@ -42,7 +48,7 @@ export async function getPostStructure(): Promise<SeriesMap> {
     const { series } = splitSlug(entry);
 
     if (!result[series]) {
-      const meta = getSeriesData(series); // ✅ 여기 await
+      const meta = getSeriesData(series);
       result[series] = {
         title: meta?.title || series,
         description: meta?.description || '',
@@ -56,13 +62,13 @@ export async function getPostStructure(): Promise<SeriesMap> {
   return result;
 }
 
-// ✅ 특정 시리즈 게시물 목록
+// 특정 시리즈 게시물 목록
 export async function getPostsBySeries(series: string): Promise<Post[]> {
   const entries = await getCollection('posts');
   return entries.filter(e => e.slug.startsWith(`${series}/`)).map(toPost);
 }
 
-// ✅ 단일 게시물 정보
+// 단일 게시물 정보
 export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'> | undefined> {
   const fullSlug = `${series}/${slug}`;
   const entries = await getCollection('posts');
