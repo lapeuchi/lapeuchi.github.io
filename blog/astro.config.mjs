@@ -13,6 +13,9 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeSlug],
   },
-
+  
+  vite: {
+    assetsInclude: ['**/*.yml'],
+  },
   // integrations: [react()]
 });
