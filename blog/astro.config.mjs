@@ -14,6 +14,5 @@ export default defineConfig({
     rehypePlugins: [rehypeSlug],
   },
 
-  // 필요 시 react 추가
   // integrations: [react()]
 });
