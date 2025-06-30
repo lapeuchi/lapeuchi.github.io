@@ -26,7 +26,7 @@ export type SeriesMap = {
 
 // YAML 메타데이터 읽기
 export function getSeriesData(series: string) {
-  const filePath = path.join(process.cwd(), 'public', 'series', `${series}.yml`);
+  const filePath = path.join(process.cwd(), 'src/data/series', `${series}.yml`);
   console.log('[🔍 YAML 경로]', filePath);
 
   if (!fs.existsSync(filePath)) {
