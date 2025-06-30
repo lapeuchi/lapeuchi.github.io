@@ -2,7 +2,6 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { getCreatedDate } from './file';
 import fs from 'fs';
 import path from 'path';
-import yaml from 'js-yaml';
 
 export type Post = {
   slug: string;
@@ -26,17 +25,14 @@ export type SeriesMap = {
 
 // YAML 메타데이터 읽기
 export function getSeriesData(series: string) {
-  const filePath = path.join(process.cwd(), 'src/data/series', `${series}.yml`);
-  console.log('[🔍 YAML 경로]', filePath);
+  const filePath = path.join(process.cwd(), 'src/data/series', `${series}.json`);
 
   if (!fs.existsSync(filePath)) {
-    console.warn('[❌ YAML 없음]', filePath);
     return null;
   }
 
   const raw = fs.readFileSync(filePath, 'utf-8');
-  console.log('[✅ YAML 읽음]', raw);
-  return yaml.load(raw) as { title?: string; description?: string } | null;
+  return JSON.parse(raw) as { title?: string; description?: string } | null;
 }
 
 // 전체 시리즈 + 게시물 구조 반환
