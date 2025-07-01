@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 
 const { series, slug } = Astro.params;
 const slugPath = `${series}/${slug.replace(/\.md$/, '')}`;
-const post = await getEntry('posts', slugPath);
+const post = await getEntry('posts', slugPath.toLowerCase());
 const rendered = await post.render();
 console.log('🔍 요청된 slugPath:', slugPath);
 
