@@ -2,25 +2,25 @@
 import BaseLayout from '@/layouts/baseLayout.astro';
 import '@/styles/[series].css';
 
-import { getPostsBySeries, getSeriesData } from '@/lib/utils/post';
+import { getPostStructure } from '@/lib/utils/post';
 import { getAllSeriesPaths } from '@/lib/utils/staticPaths';
 
 const { params } = Astro;
 const seriesId = params.series;
 
-const seriesMeta = await getSeriesData(seriesId);
-const posts = await getPostsBySeries(seriesId);
+const seriesMap = await getPostStructure();
+const seriesMeta = seriesMap[seriesId]; // ✅ title, description, posts 모두 포함
 
 export async function getStaticPaths() {
   return getAllSeriesPaths();
 }
 ---
-
+<title>lapeuchi's DevLog - {seriesMeta.title}</title>
 <BaseLayout>
   <section class="series-header container mt-5">
     <div class="series-header__title">
       <h2>📁 {seriesMeta.title}</h2>
-      <span class="series-header__count">- {posts.length}개의 게시물</span>
+      <span class="series-header__count">- {seriesMeta.posts.length}개의 게시물</span>
     </div>
 
     {seriesMeta.description && (
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   <hr class="series-divider mb-4" />
 
   <section class="series-posts container">
-    {posts.map(post => (
+    {seriesMeta.posts.map(post => (
       <div class="card bg-dark text-white mb-3">
         <div class="card-body">
           <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">

@@ -18,8 +18,7 @@
         }
       },
       "required": [
-        "title",
-        "tags"
+        "title"
       ],
       "additionalProperties": false
     }

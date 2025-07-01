@@ -1,6 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { getCreatedDate } from './file';
-import { getEntry } from 'astro:content';
 
 export type Post = {
   slug: string;
@@ -10,79 +9,75 @@ export type Post = {
   content: string;
 };
 
-type SeriesInfo = {
+export type SeriesInfo = {
   title: string;
-  description?: string;
+  description: string;
   posts: Post[];
 };
 
-export type SeriesMap = {
-  [series: string]: SeriesInfo;
-};
+// ✅ 전체 시리즈 맵
+export type SeriesMap = Record<string, SeriesInfo>;
 
-// ✅ 시리즈 md에서 메타데이터 읽기
-export async function getSeriesData(seriesId: string) {
-  try {
-    const entry = await getEntry('series', seriesId);
-    return {
-      title: entry.data.title, // fallback 처리 여기서!
-      description: entry.data.description,
-    };
-  } catch {
-    return {
-      title: seriesId,
-      description: '',
-    };
-  }
-}
-
-// ✅ 전체 시리즈 + 게시물 구조
+// ✅ 전체 시리즈 + 게시물 구조 구성
 export async function getPostStructure(): Promise<SeriesMap> {
-  const entries = await getCollection('posts');
+  const postEntries = await getCollection('posts');
+  const seriesEntries = await getCollection('series');
+
   const result: SeriesMap = {};
 
-  for (const entry of entries) {
-    const { series } = splitSlug(entry);
+  for (const entry of postEntries) {
+    const { series, slug } = splitSlug(entry);
 
     if (!result[series]) {
-      const meta = await getSeriesData(series);
+      const meta = seriesEntries.find((s) => s.id.replace(/\.md$/, '') === series);
+
+      if (!meta) {
+        console.warn('⚠️ 시리즈 파일을 못 찾음:', series);
+      } else if (!meta.data.title) {
+        console.warn('⚠️ 시리즈 title 없음:', series);
+      }
       result[series] = {
-        title: meta?.title || series,
-        description: meta?.description || '',
+        title: meta?.data.title ?? series,
+        description: meta?.data.description ?? '',
         posts: [],
       };
     }
 
-    result[series].posts.push(toPost(entry));
+    result[series].posts.push(toPost(slug, entry));
   }
-
+  
   return result;
 }
 
-// ✅ 특정 시리즈 게시물
+// ✅ 특정 시리즈의 게시물 목록만 반환
 export async function getPostsBySeries(series: string): Promise<Post[]> {
   const entries = await getCollection('posts');
-  return entries.filter(e => e.id.startsWith(`${series}/`)).map(toPost);
+  return entries
+    .filter((e) => e.id.startsWith(`${series}/`) && !e.id.endsWith('/_series'))
+    .map((e) => toPost(splitSlug(e).slug, e));
 }
 
-// ✅ 단일 게시물
+// ✅ 단일 게시물 조회
 export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'> | undefined> {
   const fullSlug = `${series}/${slug}`;
   const entries = await getCollection('posts');
-  return entries.find(e => e.id === fullSlug);
+  return entries.find((e) => e.id === fullSlug);
 }
 
+// ✅ entry.id → series, slug 분리
 function splitSlug(entry: CollectionEntry<'posts'>) {
   const [series, slug] = entry.id.split('/');
   return { series, slug };
 }
 
-function toPost(entry: CollectionEntry<'posts'>): Post {
-  const { slug } = splitSlug(entry);
+// ✅ 게시물 객체 변환
+function toPost(slug: string, entry: CollectionEntry<'posts'>): Post {
+  const data = entry.data as { title?: string; tags?: string[] };
+
   return {
     slug,
-    title: entry.data.title || slug,
-    tags: entry.data.tags || [],
+    title: data.title ?? slug,
+    tags: data.tags ?? [],
     date: getCreatedDate(entry.filePath),
     content: '',
   };

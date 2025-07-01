@@ -10,14 +10,15 @@ export async function getStaticPaths() {
 }
 
 const { series, slug } = Astro.params;
-const slugPath = `${series}/${slug}`;
+const slugPath = `${series}/${slug.replace(/\.md$/, '')}`;
 const post = await getEntry('posts', slugPath);
 const rendered = await post.render();
+console.log('🔍 요청된 slugPath:', slugPath);
 
 const { Content } = rendered;
-const { data, body } = post;
+const { body } = post;
+const data = post.data as { title: string; tags?: string[] };
 const headings = extractHeadings(body);
-
 ---
 
 <title>lapeuchi's DevLog - {data.title}</title>
