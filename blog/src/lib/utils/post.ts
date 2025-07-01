@@ -28,7 +28,7 @@ export async function getPostStructure(): Promise<SeriesMap> {
   for (const entry of postEntries) {
     let { series, slug } = splitSlug(entry);
     slug = slug.replace(/\.md$/, '');
-    
+
     if (!result[series]) {
       const meta = seriesEntries.find((s) => s.id.replace(/\.md$/, '') === series);
 
@@ -61,10 +61,10 @@ export async function getPostsBySeries(series: string): Promise<Post[]> {
 
 // ✅ 단일 게시물 조회
 export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'>> {
-  const fullSlug = `${series}/${slug}.md`;
+  const fullSlug = `${series}/${slug}`;
   const entries = await getCollection('posts');
 
-  const post = entries.find((e) => e.id === fullSlug);
+  const post = entries.find((e) => e.id === fullSlug+'.md');
 
   if (!post) {
     throw new Error(`게시물을 찾을 수 없습니다: ${series}/${slug}`);
