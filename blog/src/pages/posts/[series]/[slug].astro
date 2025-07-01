@@ -1,20 +1,20 @@
 ---
 import BaseLayout from '@/layouts/baseLayout.astro';
 import { getAllPostPaths } from '@/lib/utils/staticPaths';
-import { getEntry } from 'astro:content';
 import { extractHeadings } from '@/lib/utils/extractHeadings';
+import { getPostData } from '@/lib/utils/post'; // ✅ 기존 함수 재사용
+
 import '@/styles/[slug].css'
+
 
 export async function getStaticPaths() {
   return getAllPostPaths();
 }
 
 const { series, slug } = Astro.params;
-const slugPath = `${series}/${slug.replace(/\.md$/, '')}`;
-const post = await getEntry('posts', slugPath.toLowerCase());
-const rendered = await post.render();
-console.log('🔍 요청된 slugPath:', slugPath);
+const post = await getPostData(series, slug);
 
+const rendered = await post.render();
 const { Content } = rendered;
 const { body } = post;
 const data = post.data as { title: string; tags?: string[] };

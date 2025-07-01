@@ -26,8 +26,9 @@ export async function getPostStructure(): Promise<SeriesMap> {
   const result: SeriesMap = {};
 
   for (const entry of postEntries) {
-    const { series, slug } = splitSlug(entry);
-
+    let { series, slug } = splitSlug(entry);
+    slug = slug.replace(/\.md$/, '');
+    
     if (!result[series]) {
       const meta = seriesEntries.find((s) => s.id.replace(/\.md$/, '') === series);
 
@@ -36,6 +37,7 @@ export async function getPostStructure(): Promise<SeriesMap> {
       } else if (!meta.data.title) {
         console.warn('⚠️ 시리즈 title 없음:', series);
       }
+
       result[series] = {
         title: meta?.data.title ?? series,
         description: meta?.data.description ?? '',
@@ -58,10 +60,17 @@ export async function getPostsBySeries(series: string): Promise<Post[]> {
 }
 
 // ✅ 단일 게시물 조회
-export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'> | undefined> {
-  const fullSlug = `${series}/${slug}`;
+export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'>> {
+  const fullSlug = `${series}/${slug}.md`;
   const entries = await getCollection('posts');
-  return entries.find((e) => e.id === fullSlug);
+
+  const post = entries.find((e) => e.id === fullSlug);
+
+  if (!post) {
+    throw new Error(`게시물을 찾을 수 없습니다: ${series}/${slug}`);
+  }
+
+  return post;
 }
 
 // ✅ entry.id → series, slug 분리
@@ -73,7 +82,7 @@ function splitSlug(entry: CollectionEntry<'posts'>) {
 // ✅ 게시물 객체 변환
 function toPost(slug: string, entry: CollectionEntry<'posts'>): Post {
   const data = entry.data as { title?: string; tags?: string[] };
-
+  console.log('테스트', slug);
   return {
     slug,
     title: data.title ?? slug,
