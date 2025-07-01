@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/baseLayout.astro';
 import { getAllPostPaths } from '@/lib/utils/staticPaths';
 import { getEntry } from 'astro:content';
 import { extractHeadings } from '@/lib/utils/extractHeadings';
-import './[slug].css'
+import '@/styles/[slug].css'
 
 export async function getStaticPaths() {
   return getAllPostPaths();

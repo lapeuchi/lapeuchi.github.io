@@ -18,7 +18,8 @@
         }
       },
       "required": [
-        "title"
+        "title",
+        "tags"
       ],
       "additionalProperties": false
     }
