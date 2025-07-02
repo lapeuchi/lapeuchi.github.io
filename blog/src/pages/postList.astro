@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/baseLayout.astro';
+import '@/styles/postList.css';
 import { getPostStructure } from '@/lib/utils/post';
 
 const seriesMap = await getPostStructure();
@@ -16,20 +17,23 @@ const seriesMap = await getPostStructure();
         onclick={`document.getElementById('posts-${slug}').classList.toggle('d-none')`}
       >
         <div class="d-flex align-items-baseline gap-2 flex-wrap">
-          <span class="fw-bold">{series.title}</span> -
+          <a href={`/posts/${slug}`} class="seriesName">
+            {series.title}
+          </a>
+          -
           {series.description && (
             <small style="font-size: 0.78rem;">
               {series.description}
             </small>
           )}
         </div>
-        <span class="text-white-50">({series.posts.length})</span>
+        <span class="postsCount">({series.posts.length})</span>
       </div>
 
       <ul id={`posts-${slug}`} class="list-group list-group-flush d-none">
         {series.posts.map((post) => (
           <li class="list-group-item bg-secondary text-white d-flex justify-content-between flex-wrap align-items-start">
-            <a href={`/posts/${slug}/${post.slug}`} class="me-auto text-white text-decoration-none">
+            <a href={`/posts/${slug}/${post.slug}`} class="postName">
               {post.title}
             </a>
             <div class="text-end small">

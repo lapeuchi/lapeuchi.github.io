@@ -1,0 +1,23 @@
+.seriesName {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.seriesName:hover  {
+    color: rgb(221, 102, 102);
+}
+
+.postName {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: end-auto
+}
+
+.postName:hover  {
+    color: rgb(221, 102, 102);
+}
+
+.postsCount {
+    color: rgba(255, 255, 255, 0.5);
+}
