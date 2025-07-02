@@ -61,7 +61,7 @@ export async function getPostsBySeries(series: string): Promise<Post[]> {
 
 // ✅ 단일 게시물 조회
 export async function getPostData(series: string, slug: string): Promise<CollectionEntry<'posts'>> {
-  const fullSlug = `${series}/${slug}`;
+   const fullSlug = `${series}/${slug}`;
   const entries = await getCollection('posts');
 
   const post = entries.find((e) => e.id === fullSlug+'.md');
