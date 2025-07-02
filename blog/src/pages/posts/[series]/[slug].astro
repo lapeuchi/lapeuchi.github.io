@@ -25,16 +25,16 @@ const headings = extractHeadings(body);
 
 <BaseLayout>
   
-  <h1 class="mb-2">{data.title}</h1>
+  <h1 class="title">{data.title}</h1>
 
-  <div class="mb-3">
+  <div class="tags">
     {data.tags?.map(tag => (
-      <span class="badge bg-light text-dark me-1">#{tag}</span>
+      <span class="tag badge text-dark">#{tag}</span>
     ))}
   </div>
 
   {headings.length > 0 && (
-    <div class="toc mb-4">
+    <div class="index">
       <h5 class="text-white">📑 목차</h5>
       <ul>
         {headings.map(({ level, id, text }) => (

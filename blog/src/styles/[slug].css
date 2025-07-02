@@ -1,32 +1,54 @@
-.toc {
-    background: #2c2f33;
+.title {
+    margin-bottom: 20px;
+}
+
+.tags {
+    margin-bottom: 30px;
+}
+
+.tag {
+    margin-right: 0.25rem;
+
+    background-color: rgb(#174076);
+    
+}
+
+.badge {
+    background-color: rgb(#1f2021);
+}
+
+.index {
     padding: 1rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
+
+    background: #2c2f33;
 }
-.toc ul {
-    list-style: none;
+
+.index ul {
     padding-left: 0;
     margin: 0;
+
+    list-style: none;
 }
-.toc li {
+.index li {
     margin-bottom: 0.3rem;
 }
-.toc li.level-3 {
+.index li.level-3 {
     margin-left: 1rem;
     font-size: 0.85em;
 }
-.toc a {
+.index a {
     color: #ccc;
     text-decoration: none;
 }
-.toc a:hover {
+.index a:hover {
     text-decoration: underline;
 }
 
 .markdown-body img {
-    max-width: 70%;
-    height: auto;          /* ✅ 세로 비율 유지 */
     display: block;
+    max-width: 70%;
     margin: 1rem 0;
+    height: auto;
 }
