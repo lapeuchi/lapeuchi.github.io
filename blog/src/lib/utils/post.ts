@@ -1,5 +1,4 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { getCreatedDate } from './file';
 
 export type Post = {
   slug: string;
@@ -75,12 +74,11 @@ function splitSlug(entry: CollectionEntry<'posts'>) {
 
 // 게시물 메타데이터 변환
 function toPost(slug: string, entry: CollectionEntry<'posts'>): Post {
-  const data = entry.data as { title?: string; tags?: string[] };
-
+  const data = entry.data
   return {
     slug,
-    title: data.title ?? slug,
-    tags: data.tags ?? [],
-    date: getCreatedDate(entry.filePath),
+    title: data.title,
+    tags: data.tags,
+    date: data.upload,
   };
 }

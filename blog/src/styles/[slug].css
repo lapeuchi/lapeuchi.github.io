@@ -1,9 +1,9 @@
 .title {
-    margin-bottom: 20px;
+    margin-bottom: 2px;
 }
 
 .tags {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .tag {
@@ -11,13 +11,14 @@
     
 }
 
-
 .index {
     padding: 1rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
 
     background: #2c2f33;
+
+    margin-bottom: 40px;
 }
 
 .index ul {
@@ -39,11 +40,4 @@
 }
 .index a:hover {
     text-decoration: underline;
-}
-
-.markdown-body img {
-    display: block;
-    max-width: 70%;
-    margin: 1rem 0;
-    height: auto;
 }

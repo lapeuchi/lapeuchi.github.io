@@ -17,24 +17,20 @@ export async function getStaticPaths() {
 <title>lapeuchi's DevLog - {seriesData.title}</title>
 
 <BaseLayout>
-  <section class="series-header container">
-    <div class="series-header__title">
-      <h2>📁 {seriesData.title}</h2>
-      <span class="series-header__count">- {seriesData.posts.length}개의 게시물</span>
-    </div>
+  <div class="head">
+    <h2 class="title">📁 {seriesData.title}</h2>
 
     {seriesData.description && (
-      <p class="series-header__description text-secondary">
+      <p class="description">
         {seriesData.description}
       </p>
     )}
-  </section>
+  </div>
 
-  <hr class="series-divider mb-4" />
-
-  <section class="series-posts container">
+  <section class="posts">
+    <div class="postLength">- 게시물 {seriesData.posts.length}개</div>
     {seriesData.posts.map(post => (
-      <div class="card bg-dark text-white mb-3">
+      <div class="post card bg-dark text-white mb-3">
         <div class="card-body">
           <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">
             {post.title}

@@ -5,7 +5,7 @@ import { extractHeadings } from '@/lib/utils/extractHeadings';
 import { getPostData } from '@/lib/utils/post'; // ✅ 기존 함수 재사용
 
 import '@/styles/[slug].css'
-
+import '@/styles/slug/markdown.css'
 
 export async function getStaticPaths() {
   return getAllPostPaths();
@@ -17,7 +17,7 @@ const post = await getPostData(series, slug);
 const rendered = await post.render();
 const { Content } = rendered;
 const { body } = post;
-const data = post.data as { title: string; tags?: string[] };
+const data = post.data;
 const headings = extractHeadings(body);
 ---
 
@@ -25,14 +25,15 @@ const headings = extractHeadings(body);
 
 <BaseLayout>
   
-  <h1 class="title">{data.title}</h1>
+  <h1 class="title">{data.title}</h1>  
+  <span class="upload">{data.upload}</span>
 
   <div class="tags">
     {data.tags?.map(tag => (
       <span class="tag badge text-dark">#{tag}</span>
     ))}
   </div>
-
+  
   {headings.length > 0 && (
     <div class="index">
       <h5 class="text-white">📑 목차</h5>
@@ -46,7 +47,7 @@ const headings = extractHeadings(body);
     </div>
   )}
 
-  <hr />
+  
 
   <article class="markdown-body">
     <Content />

@@ -1,6 +1,7 @@
 ---
 title: "01. 유니티 에디터"
 tags: ["Unity", "C#", "dev"]
+upload: "2025-06-28"
 ---
 
 ## 1. Inspector

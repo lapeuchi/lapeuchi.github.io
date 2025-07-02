@@ -1,7 +1,6 @@
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { visit } from 'unist-util-visit';
 
-
 type Heading = { level: number; id: string; text: string };
 
 export function extractHeadings(markdown: string): Heading[] {

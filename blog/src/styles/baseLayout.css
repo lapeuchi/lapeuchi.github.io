@@ -11,7 +11,7 @@ body {
 }
 
 /* 본문 영역 */
-main.main-content {
+main {
   margin-left: var(--sidebar-width);
   padding: 4rem 1rem;
   flex-grow: 1;
@@ -33,7 +33,7 @@ main.main-content {
     flex-direction: column;
   }
 
-  main.main-content {
+  main {
     margin-left: 0 !important;
   }
 

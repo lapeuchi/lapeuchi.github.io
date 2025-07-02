@@ -13,13 +13,17 @@
             "type": "string"
           }
         },
+        "upload": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
         "title",
-        "tags"
+        "tags",
+        "upload"
       ],
       "additionalProperties": false
     }

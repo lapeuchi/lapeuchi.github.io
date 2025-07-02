@@ -1,0 +1,14 @@
+.markdown-body img {
+    display: block;
+    max-width: 70%;
+    margin: 1rem 0;
+    height: auto;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  color: #666;
+  margin: 1rem 0;
+  font-style: italic;
+}
