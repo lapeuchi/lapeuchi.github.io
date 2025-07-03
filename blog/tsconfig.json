@@ -17,7 +17,7 @@
     "src",
     "**/*.astro",
     ".astro/types.d.ts"
-  ],
+, "public/theme.js"  ],
   "exclude": [
     "dist"
   ]

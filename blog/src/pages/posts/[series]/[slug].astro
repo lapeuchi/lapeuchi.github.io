@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '@/layouts/baseLayout.astro';
-import { getAllPostPaths } from '@/lib/utils/staticPaths';
-import { extractHeadings } from '@/lib/utils/extractHeadings';
-import { getPostData } from '@/lib/utils/post'; // ✅ 기존 함수 재사용
+import { getAllPostPaths } from '@/utils/staticPaths';
+import { extractHeadings } from '@/utils/extractHeadings';
+import { getPostData } from '@/utils/post';
 
 import '@/styles/[slug].css'
 import '@/styles/slug/markdown.css'
@@ -46,8 +46,6 @@ const headings = extractHeadings(body);
       </ul>
     </div>
   )}
-
-  
 
   <article class="markdown-body">
     <Content />

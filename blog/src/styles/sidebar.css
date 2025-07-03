@@ -1,63 +1,79 @@
-:root {
-  --sidebar-bg: #8f7878;
-  --text-color: #fff;
-  --shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-}
-
 /* 내부 영역 */
 .sidebar {
   height: 100%;
-  overflow-y: auto;
-  position: fixed;
+  width: var(--sidebar-width);
   top: 0;
   left: 0;
-  width: var(--sidebar-width);
-  height: 100vh;
-  background-color: var(--sidebar-bg);
-  color: var(--text-color);
-  box-shadow: var(--shadow);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  overflow-y: auto;
   z-index: 1000;
+  
+  box-shadow: rgba(0, 0, 0, 0.5);
+
+  background-color: var(--bar-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .profile {
-  text-align: center;
   margin-top: 2rem;
+  text-align: center;  
+}
+
+.profile .profileImg {
+  margin-bottom: 0.7rem;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
 }
 
 .profile .nickname {
   margin-bottom: 6px;
+  cursor: pointer;
 }
 
 .profile .email {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 0.4rem;
+}
+
+.profile .email a {
+  color: var(--text-color);
+  text-decoration: none; 
+}
+
+.profile .email a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--hover-color);
 }
 
 /* 링크 스타일 */
-.sns-icons i {
+.profile .sns-icons i {
+  display: inline;
   font-size: 20px;
   color: var(--text-color);
 }
+
 .sidebar-menu li {
-  margin: 6px 0;
+  margin-bottom: 0.4rem;
 }
 
-.sidebar-menu a,
-.page-links a {
+.sidebar-menu a {
   color: var(--text-color);
   text-decoration: none;
 }
 
-.sidebar-menu a:hover,
-.page-links a:hover {
-  text-decoration: underline;
+.sidebar-menu a:hover {  
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--hover-color);
 }
 
 .sidebar-head {
- 	font-size: 20px
-}
-
-.email {
-  color: inherit;         /* 부모 요소 글자색 따라감 */
-  text-decoration: none;  /* 밑줄 제거 */
+  color: var(--text-color);
 }

@@ -1,0 +1,38 @@
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bar-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+}
+
+.custom-navbar-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.custom-navbar-list {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-navbar-link {
+    text-decoration: none;
+
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.custom-navbar-link:hover {
+    color: var(--hover-color);
+    transition: color 0.3s ease;
+}

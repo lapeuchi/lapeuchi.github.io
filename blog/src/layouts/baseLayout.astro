@@ -4,13 +4,27 @@ import '@/styles/navbar.css';
 import '@/styles/sidebar.css';
 import Sidebar from '@/components/sidebar.astro';
 import Navbar from '@/components/navbar.astro';
-import { getPostStructure } from '@/lib/utils/post.ts';
+import { getPostStructure } from '@/utils/post';
 
 const seriesMap = await getPostStructure();
 ---
 
 <html lang="ko">
+
   <head>
+    <script is:inline>
+      (function () {
+        try {
+          const saved = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('theme', theme);
+        } catch (_) {}
+      })();
+    </script>
+    
+    <script src="/utils/theme.js" defer></script>
+
     <title>Lapeuchi's Devlog</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,9 +55,8 @@ const seriesMap = await getPostStructure();
     </div>
 
     <main>
-      <div class="container">
-        <slot />
-      </div>
+      <slot />
     </main>
+    
   </body>
 </html>

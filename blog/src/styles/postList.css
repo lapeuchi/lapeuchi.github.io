@@ -1,3 +1,9 @@
+.title {
+    margin-bottom: 2rem;
+
+    color: black;
+}
+
 .seriesName {
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -7,6 +13,12 @@
 .seriesName:hover  {
     color: rgb(221, 102, 102);
 }
+
+.series-description {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.799);
+}
+
 
 .postName {
     color: rgb(255, 255, 255);

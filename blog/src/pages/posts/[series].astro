@@ -2,8 +2,8 @@
 import BaseLayout from '@/layouts/baseLayout.astro';
 import '@/styles/[series].css';
 
-import { getSeriesData } from '@/lib/utils/post';
-import { getAllSeriesPaths } from '@/lib/utils/staticPaths';
+import { getSeriesData } from '@/utils/post';
+import { getAllSeriesPaths } from '@/utils/staticPaths';
 
 const { params } = Astro;
 const seriesId = params.series;
@@ -29,9 +29,10 @@ export async function getStaticPaths() {
 
   <section class="posts">
     <div class="postLength">- 게시물 {seriesData.posts.length}개</div>
+    
     {seriesData.posts.map(post => (
-      <div class="post card bg-dark text-white mb-3">
-        <div class="card-body">
+      <div class="post">
+        
           <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">
             {post.title}
           </a>
@@ -44,10 +45,10 @@ export async function getStaticPaths() {
             </div>
           )}
 
-          <div class="text-end small text-light" style="opacity: 0.6;">
+          <div class="upload">
             {post.date}
           </div>
-        </div>
+        
       </div>
     ))}
   </section>

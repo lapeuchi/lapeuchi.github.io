@@ -1,13 +1,15 @@
 ---
-import BaseLayout from '@/layouts/baseLayout.astro';
 import '@/styles/postList.css';
-import { getPostStructure } from '@/lib/utils/post';
+import BaseLayout from '@/layouts/baseLayout.astro';
+
+import { getPostStructure } from '@/utils/post';
 
 const seriesMap = await getPostStructure();
 ---
 <title>lapeuchi's DevLog - 게시물</title>
 <BaseLayout>
-  <h2 class="mb-5">📚 게시글 목록</h2>
+  
+  <h2 class="title">📚 게시글 목록</h2>
 
   {Object.entries(seriesMap).map(([slug, series]) => (
     <div class="card bg-dark text-white mb-3">
@@ -20,9 +22,9 @@ const seriesMap = await getPostStructure();
           <a href={`/posts/${slug}`} class="seriesName">
             {series.title}
           </a>
-          -
+
           {series.description && (
-            <small style="font-size: 0.78rem;">
+            <small class="series-description">
               {series.description}
             </small>
           )}
