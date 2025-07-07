@@ -1,3 +1,12 @@
+
+:root {
+    --blockquote-color: rgb(124, 199, 113);
+}
+
+:root[theme='dark'] {
+    --blockquote-color: rgb(255, 224, 67);
+}
+
 .markdown-body img {
     display: block;
     max-width: 70%;
@@ -6,9 +15,36 @@
 }
 
 .markdown-body blockquote {
-  border-left: 4px solid #ccc;
+  
+  border-left: 4px solid var(--blockquote-color);
   padding-left: 1rem;
-  color: #666;
+ 
+
   margin: 1rem 0;
+  font-weight: bold;
   font-style: italic;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+.markdown-body thead {
+  font-weight: bold;
+  text-align: center;
+  color: var(--textColor);
+}
+
+/*코드 영역*/
+pre {
+  border-radius: 8px;
+  padding: 1rem;
 }

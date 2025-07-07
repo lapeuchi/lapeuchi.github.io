@@ -3,8 +3,7 @@
     margin-bottom: 2rem;
     border-bottom: 0.1rem;
 
-    border-color: rgb(70, 70, 70);
-    border-bottom-style: solid;
+    border-bottom: 1px solid var(--borderColor);
 
 }
 
@@ -34,7 +33,7 @@
 .postLength {
     font-size: 0.94rem;
 
-    color: rgb(89, 89, 89);
+    color: var(--fade-textColor);
 }
 
 .upload {

@@ -2,18 +2,19 @@
   --sidebar-width: 250px;
   --navbar-height: 50px;
 
-  --bgColor: #ffffff;
-  --textColor: #000000;
-  --hover-color: #00b3ff;
-
-  --bar-color: #8f7878;
+  --bgColor: #ffffff; /*배경색*/
+  
+  --normal-textColor: #000000; /*일반 텍스트 색상*/
+  --hover-textColor: #00b3ff; /*하이퍼 링크 호버 색상*/
+  --fade-textColor: #5a5a5a; /*흐릿한 글자 색상*/
+  --borderColor: #353535; /*섹션을 나누는 선 색상*/
 }
 
 :root[theme='dark'] {
   --bgColor: #373C3F;
-  --textColor: #ffffff;
-
-  --bar-color: #232323;
+  --normal-textColor: #ffffff;
+  --fade-textColor: #b3b3b3;
+  --borderColor: #aeaeae; 
 }
 
 /* 전체 레이아웃 */
@@ -24,7 +25,7 @@ body {
   flex-direction: row;
 
   background-color: var(--bgColor);
-  color: var(--textColor);
+  color: var(--normal-textColor);
 
   transition: color 0.3s ease;
   transition: background-color 0.3s ease;
