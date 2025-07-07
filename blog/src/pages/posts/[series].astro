@@ -14,9 +14,7 @@ export async function getStaticPaths() {
   return getAllSeriesPaths();
 }
 ---
-<title>lapeuchi's DevLog - {seriesData.title}</title>
-
-<BaseLayout>
+<BaseLayout title={seriesData.title} description={seriesData.description}>
   <div class="head">
     <h2 class="title">📁 {seriesData.title}</h2>
 

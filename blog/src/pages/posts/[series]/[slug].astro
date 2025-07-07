@@ -21,10 +21,7 @@ const data = post.data;
 const headings = extractHeadings(body);
 ---
 
-<title>lapeuchi's DevLog - {data.title}</title>
-
-<BaseLayout>
-  
+<BaseLayout title={data.title} description={data.title}>  
   <h1 class="title">{data.title}</h1>  
   <span class="upload">{data.upload}</span>
 

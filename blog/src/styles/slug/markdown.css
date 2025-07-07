@@ -15,11 +15,9 @@
 }
 
 .markdown-body blockquote {
-  
   border-left: 4px solid var(--blockquote-color);
   padding-left: 1rem;
- 
-
+  
   margin: 1rem 0;
   font-weight: bold;
   font-style: italic;
