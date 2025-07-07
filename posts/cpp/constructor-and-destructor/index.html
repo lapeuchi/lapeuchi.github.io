@@ -1,0 +1,86 @@
+<!DOCTYPE html><title>lapeuchi's DevLog - 객체의 시작과 끝 - 생성자와 소멸자</title><html lang="ko"> <head><script>
+      (function () {
+        try {
+          const saved = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('theme', theme);
+        } catch (_) {}
+      })();
+    </script><script src="/utils/theme.js" defer></script><title>Lapeuchi's Devlog</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><meta name="google-adsense-account" content="ca-pub-3865242689879019"><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><style>:root{--sidebar-width: 250px;--navbar-height: 50px;--bgColor: #ffffff;--textColor: #000000;--hover-color: #00b3ff;--bar-color: #8f7878}:root[theme=dark]{--bgColor: #373C3F;--textColor: #ffffff;--bar-color: #232323}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--textColor);transition:color .3s ease;transition:background-color .3s ease}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;background-color:var(--bar-color);color:var(--text-color);padding:.75rem 1.5rem}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer;color:var(--text-color);transition:color .3s ease}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.custom-navbar-link{text-decoration:none;color:var(--text-color);transition:color .3s ease}.custom-navbar-link:hover{color:var(--hover-color);transition:color .3s ease}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;box-shadow:#00000080;background-color:var(--bar-color);color:var(--text-color);transition:background-color .3s ease;transition:color .3s ease}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .email a{color:var(--text-color);text-decoration:none}.profile .email a:hover{text-decoration:none;font-weight:700;color:var(--hover-color)}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem}.sidebar-menu a{color:var(--text-color);text-decoration:none}.sidebar-menu a:hover{text-decoration:none;font-weight:700;color:var(--hover-color)}.sidebar-head{color:var(--text-color)}
+.title{margin-bottom:2px}.tags{margin-bottom:10px}.tag{margin-right:.25rem}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:70%;margin:1rem 0;height:auto}.markdown-body blockquote{border-left:4px solid #ccc;padding-left:1rem;color:#666;margin:1rem 0;font-style:italic}
+</style></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle">Lapeuchi's Devlog</h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">📦 페이지</h5> <ul> <li><a href="/">🏠 홈</a></li> <li><a href="/postList">🗂️ 게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">📦 시리즈</h5> <ul> <li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(1)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(3)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(2)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h5 class="custom-navbar-title" id="themeToggle">Lapeuchi's Devlog</h5> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">🏠 홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">🗂️ 게시물 목록</a> </li> </ul> </nav> </div> <main> <h1 class="title">객체의 시작과 끝 - 생성자와 소멸자</h1><span class="upload">2025-07-07</span><div class="tags"><span class="tag badge text-dark">#cpp</span></div><div class="index"><h5 class="text-white">📑 목차</h5><ul><li class="level-2"><a href="#개요">개요</a></li><li class="level-2"><a href="#생성자와-소멸자의-기본-형태">생성자와 소멸자의 기본 형태</a></li><li class="level-2"><a href="#생성자-종류">생성자 종류</a></li><li class="level-2"><a href="#접근-제어자에-따른-생성자와-소멸자">접근 제어자에 따른 생성자와 소멸자</a></li></ul></div><article class="markdown-body"><h2 id="개요">개요</h2>
+<p>클래스 속 함수를 맴버 함수라고 한다.
+클래스의 목적에 따라 기능과 호출시점을 생각해서 자유롭게 맴버 함수를 정의할 수 있는데
+이와는 다르게 좀 특별한 함수가 있다.</p>
+<p>바로 포스트의 주제인 “<strong>생성자</strong>”와 “<strong>소멸자</strong>”이다.
+둘은 각각 <strong>객체의 시작과 끝</strong>을 알리는 함수이다.</p>
+<h2 id="생성자와-소멸자의-기본-형태">생성자와 소멸자의 기본 형태</h2>
+<p>아래는 생성자와 소멸자를 선언, 정의하는 예제이다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Knight</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">public:</span></span>
+<span class="line"><span style="color:#B392F0">    Knight</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D"> // 생성자 선언</span></span>
+<span class="line"><span style="color:#B392F0">    ~Knight</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D"> // 소멸자 선언 (이름 앞 '~')</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    void</span><span style="color:#B392F0"> Move</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> x</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> y</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">public:</span></span>
+<span class="line"><span style="color:#F97583">    int</span><span style="color:#E1E4E8"> x;</span></span>
+<span class="line"><span style="color:#F97583">    int</span><span style="color:#E1E4E8"> y;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">Knight</span><span style="color:#E1E4E8">::</span><span style="color:#B392F0">Knight</span><span style="color:#E1E4E8">()</span><span style="color:#6A737D"> // 생성자 정의</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">Knight</span><span style="color:#E1E4E8">::</span><span style="color:#F97583">~</span><span style="color:#B392F0">Knight</span><span style="color:#E1E4E8">()</span><span style="color:#6A737D"> // 소멸자 정의</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>일반적인 함수를 선언하는 것과 비슷하다.
+우선 일반적인 함수와 다르게 반환 형식을 지정하지 않는다. <del>(void도 아니다.)</del>
+생성자와 소멸자는 클래스와 동일한 이름으로 선언하고, 소멸자 앞에는 꼭 ’<em>~</em>‘를 붙여야 한다.</p>
+<p>소멸자는 클래스별 단 하나만 선언할 수 있지만 생성자는 다양한 방법으로 여러개 선언이 가능하다.</p>
+<h2 id="생성자-종류">생성자 종류</h2>
+<ol>
+<li>기본생성자</li>
+<li>복사생성자</li>
+<li></li>
+</ol>
+<h2 id="접근-제어자에-따른-생성자와-소멸자">접근 제어자에 따른 생성자와 소멸자</h2>
+<p>일반적으로 public에 선언하지만 상황에 따라 다르게 쓰는 것도 가능하다.</p>
+<p>아래 표에 접근 제어자에 따른 생성자와 소멸자의 용도를 정리하였다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>접근 제어자</th><th>생성자</th><th>소멸자</th><th>용도</th></tr></thead><tbody><tr><td>public</td><td>일반적인 객체 생성</td><td>기본 소멸 가능</td><td>대부분의 경우</td></tr><tr><td>protected</td><td>상속 전용 객체 생성</td><td>자식 전용 파괴</td><td>추상 클래스, 인터페이스</td></tr><tr><td>private</td><td>외부 생성 제한</td><td>외부 소멸 제한</td><td>싱글턴, 팩토리, 자원 통제</td></tr></tbody></table></article> </main> </body></html>
