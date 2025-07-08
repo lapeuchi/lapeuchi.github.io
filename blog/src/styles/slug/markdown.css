@@ -4,7 +4,7 @@
 }
 
 :root[theme='dark'] {
-    --blockquote-color: rgb(255, 224, 67);
+    --blockquote-color: rgb(255, 199, 67);
 }
 
 .markdown-body img {
@@ -12,6 +12,21 @@
     max-width: 70%;
     margin: 1rem 0;
     height: auto;
+}
+
+.markdown-body h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #868686;
+
+  font-size: 1.7rem;
+}
+
+.markdown-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  font-size: 1.4rem;
 }
 
 .markdown-body blockquote {
