@@ -24,7 +24,6 @@ public void StackEx()
 }
 ```
 
-![Untitled](Untitled.png)
 
 ### 힙
 
