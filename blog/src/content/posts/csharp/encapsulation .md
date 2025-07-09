@@ -1,31 +1,34 @@
-# 은닉성
+---
+title: "은닉성"
+tags: ["C#"]
+upload: "2025-07-02"
+---
 
 ```csharp
 class Knight
 {
-		public int hp = 10;
-		private int s = 1;
-		protected int a = 2;
-		
+	public int hp = 10;
+	private int s = 1;
+	protected int a = 2;
 }
 
 class SuperKnight : Knight
 {
-		void Test()
-		{
-				hp = 10;
-		}
+	void Test()
+	{
+		hp = 10;
+		a = 1; // 자식 클래스에서 수정가능한 protected
+	}
 }
 
 class Program : Knight
 {
-		static void Main(string[] args)
-		{
-				Knight knight = new Knight();
-				knight.hp = 100;
-				knight.s = 10; //s의 보호수준이 private이어서 
-											 //오류가 생긴다.
-		}
+	static void Main(string[] args)
+	{
+		Knight knight = new Knight();
+		knight.hp = 100;
+		knight.s = 10; //s의 보호수준이 private이어서 //오류가 생긴다.
+	}
 }
 ```
 

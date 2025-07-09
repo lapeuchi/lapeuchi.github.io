@@ -1,4 +1,8 @@
-# 비트 연산
+---
+title: "비트 연산"
+tags: ["C#"]
+upload: "2025-07-02"
+---
 
 ```csharp
 int num - 1;

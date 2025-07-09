@@ -1,4 +1,8 @@
-# 반복문 : while, for
+---
+title: "반복문 while, for"
+tags: ["C#"]
+upload: "2025-06-28"
+--- 
 
 ## 반복문
 

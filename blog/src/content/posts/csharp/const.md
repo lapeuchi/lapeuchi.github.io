@@ -1,4 +1,8 @@
-# 상수와 열거형
+---
+title: "상수 const"
+tags: ["C#"]
+upload: "2025-07-02"
+---
 
 ## 상수 const
 
@@ -24,35 +28,4 @@ switch(choice) //입력받은 정수값
 	default
 	break;
 }
-```
-
-## 열거형
-
-- 하나의 그룹
-- 사용법 : enum 이름
-- 
-
-```csharp
-enum Choise  
-{
-	 Rock = 1;
-	 Paper = 2;
-	 Scissors = 0;
-}
-
-switch(choice) //입력받은 정수
-{
-	case (int)Choice.Scissors:
-	break;
-
-	case (int)Choice.Rock:
-	break;
-
-	case (int)Choice.Paper:
-	break;
-
-	default
-	break;
-}
-
 ```

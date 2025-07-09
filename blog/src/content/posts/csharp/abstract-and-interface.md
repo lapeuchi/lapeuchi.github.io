@@ -19,28 +19,28 @@ upload: "2025-07-02"
 - 선언한 추상함수는 자식에서 재정의한다.
 - abstract 사용 예시 코드
     
-    ```csharp
-    abstract class Mob
+```csharp
+abstract class Mob
+{
+    public abstract void Shout(); //추상 함수는 선언만 한다.
+}
+
+class Orc : Mob
+{
+    public override void Shout()
     {
-    		public abstract void Shout(); //추상 함수는 선언만 한다.
+        Console.WriteLine("록타르 오가르")
     }
-    
-    class Orc : Mob
+}
+
+class Slime : Mob
+{
+    public override void Shout()
     {
-    		public override void Shout()
-    		{
-    				Console.WriteLine("록타르 오가르")
-    		}
+        Console.WriteLine("끈적한 소리")
     }
-    
-    class Slime : Mob
-    {
-    		public override void Shout()
-    		{
-    				Console.WriteLine("끈적한 소리")
-    		}
-    }
-    ```
+}
+```
     
 
 ## keyword : interface
@@ -54,33 +54,33 @@ upload: "2025-07-02"
 - 인터페이스를 상속받는 자식에서 함수를 정의한다.
 - interface 사용 예시 코드
     
-    ```csharp
-    abstract class Mob
+```csharp
+abstract class Mob
+{
+    public abstract void Shout(); //추상 함수는 선언만 한다.
+}
+
+class Orc : Mob
+{
+    public override void Shout()
     {
-    		public abstract void Shout(); //추상 함수는 선언만 한다.
+        Console.WriteLine("록타르 오가르")
     }
-    
-    class Orc : Mob
+}
+
+interface IFlyable
+{
+    void Fly();
+}
+
+class FlyableOrc : Orc, IFlyable
+{
+    void Fly()
     {
-    		public override void Shout()
-    		{
-    				Console.WriteLine("록타르 오가르")
-    		}
+        Console.WriteLine("날아요우!");
     }
-    
-    interface IFlyable
-    {
-    		void Fly();
-    }
-    
-    class FlyableOrc : Orc, IFlyable
-    {
-    		void Fly()
-    		{
-    				Console.WriteLine("날아요우!");
-    		}
-    }
-    ```
+}
+```
 
 |  | 추상 클래스 | 인터페이스 |
 | --- | --- | --- |

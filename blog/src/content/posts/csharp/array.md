@@ -1,4 +1,9 @@
-# 배열
+---
+title: " 배열"
+tags: ["C#"]
+upload: "2025-06-28"
+--- 
+
 
 ```csharp
 class Player {}
@@ -6,11 +11,11 @@ class Mob {}
 
 class Program
 {
-		Player player;
-		Monster monster_1;
-		Monster monster_2;
-		Monster monster_3;
-		//...
+	Player player;
+	Monster monster_1;
+	Monster monster_2;
+	Monster monster_3;
+	//...
 }
 ```
 
@@ -21,20 +26,20 @@ class Program
 ```csharp
 static void Main(string[] args)
 {
-		int[] scores = new int[5]; // 5 개의 int형 데이터를 담을 수 있는 바구니.
-		int[] Coinscores = new int[] {1, 5, 10, 15, 20};
-		int[] Itemscores = new int[5] {1, 5, 10, 15, 20};
-		int[] bulletScores = {1, 2, 5, 3, 2}
-		//5개면 0,1,2,3,4 번째가 변수가 생긴다.
-		scores[0] = 10;
-		scores[1] = 30;
-		scores[2] = 3 - 1 ;
-		scores[3] = 50 * 2;
-		scores[4] = 43;
-		for(int i = 0; i < 5; i++)
-		{
-				Console.WriteLine(scores[i]); // **i 번째 scores** 출력
-		}
+	int[] scores = new int[5]; // 5 개의 int형 데이터를 담을 수 있는 바구니.
+	int[] Coinscores = new int[] {1, 5, 10, 15, 20};
+	int[] Itemscores = new int[5] {1, 5, 10, 15, 20};
+	int[] bulletScores = {1, 2, 5, 3, 2}
+	//5개면 0,1,2,3,4 번째가 변수가 생긴다.
+	scores[0] = 10;
+	scores[1] = 30;
+	scores[2] = 3 - 1 ;
+	scores[3] = 50 * 2;
+	scores[4] = 43;
+	for(int i = 0; i < 5; i++)
+	{
+			Console.WriteLine(scores[i]); // **i 번째 scores** 출력
+	}
 }
 ```
 
@@ -47,12 +52,12 @@ static void Main(string[] args)
 ```csharp
 //1번 코드
 for (int i = 0; i <scores.Length(); i++)
-		Console.WriteLine(scores[i]);
+	Console.WriteLine(scores[i]);
 
 //2번 코드
 foreach (int score in scores)
 {
-		Console.WriteLine(score);  
+	Console.WriteLine(score);  
 }
 ```
 

@@ -1,4 +1,8 @@
-# 정수 형식
+---
+title: "정수 타입"
+tags: ["C#"]
+upload: "2025-06-28"
+--- 
 
 ```csharp
 using System;

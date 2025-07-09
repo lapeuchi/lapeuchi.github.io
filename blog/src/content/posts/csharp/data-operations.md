@@ -1,5 +1,8 @@
-# 데이터 연산
-
+---
+title: "데이터 연산"
+tags: ["C#"]
+upload: "2025-06-28"
+---
 ### 할당(대입) 연산(=)
 
 좌변의 값을 복사하여 우변에 저장. 
@@ -10,7 +13,7 @@ using System
 namespace CSharp
 {
 	class Program
-  {
+  	{
 		int hp = 100;
 		// + - * / %
 		hp = 2 * 100 + 1; //201

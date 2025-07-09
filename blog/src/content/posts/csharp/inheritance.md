@@ -1,4 +1,8 @@
-# 상속성
+---
+title: "상속성"
+tags: ["C#"]
+upload: "2025-07-02"
+---
 
 ```csharp
 using Console;

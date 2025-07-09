@@ -1,4 +1,8 @@
-# 불리언, 소수, 문자열 형식
+---
+title: "불리언, 실수, 문자열 형식"
+tags: ["C#"]
+upload: "2025-06-28"
+--- 
 
 ```csharp
 using System
