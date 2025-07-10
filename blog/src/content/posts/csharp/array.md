@@ -38,7 +38,7 @@ static void Main(string[] args)
 	scores[4] = 43;
 	for(int i = 0; i < 5; i++)
 	{
-			Console.WriteLine(scores[i]); // **i 번째 scores** 출력
+		Console.WriteLine(scores[i]); // **i 번째 scores** 출력
 	}
 }
 ```

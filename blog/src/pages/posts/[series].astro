@@ -38,7 +38,7 @@ export async function getStaticPaths() {
           {post.tags.length > 0 && (
             <div class="mt-1">
               {post.tags.map(tag => (
-                <span class="badge bg-light text-dark me-1">#{tag}</span>
+                <span class="badge bg-light text-dark me-1">{tag}</span>
               ))}
             </div>
           )}

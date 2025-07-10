@@ -9,33 +9,32 @@ upload: "2025-06-28"
 ```csharp
 class Knight 
 {
-		//필드
-		public int hp;
-		static public int cnt; //한 개만 존재
-		//생성자
-		public Knight() 
-		{
-				counter++;
-				hp = 100;
-				attack = 10;
-				
-		}
-		//함수
-		public void Move() {}
+    //필드
+    public int hp;
+    static public int cnt; //한 개만 존재
+    //생성자
+    public Knight() 
+    {
+        counter++;
+        hp = 100;
+        attack = 10;
+    }
+	//함수
+    public void Move() {}
 }
 
 class Program
 {
-		static void Main(string[] args)
-	  {
-				Knight knight = new Knight();
-				knight.hp = 10;
-				Knight knight2 = new Knight();
-				knight2.hp = 80;
-				Knight knight3 = new Knight();
-				knight3.hp = 200;
-			  //hp가 인스턴스마다 다를 수 있음
-		}
+    static void Main(string[] args)
+    {
+        Knight knight = new Knight();
+        knight.hp = 10;
+        Knight knight2 = new Knight();
+        knight2.hp = 80;
+        Knight knight3 = new Knight();
+        knight3.hp = 200;
+        //hp가 인스턴스마다 다를 수 있음
+    }
 }
 ```
 

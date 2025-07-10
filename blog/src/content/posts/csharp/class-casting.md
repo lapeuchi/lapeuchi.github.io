@@ -10,88 +10,87 @@ upload: "2025-07-02"
     
 - 응용 코드
     
-    ```csharp
-    class Player
-    {
-    		protected int hp;
-    		protected int attack;
-    }
-    
-    class Knight : Player
-    {
-    
-    }
-    
-    class Mage : Player
-    {
-    		public int mp;
-    }
-    
-    class Program
-    {
-    		
-    		static void EnterGame(Knight k)
-    		{
-    				
-    		}
-    
-    		static void EnterGame(Mage m)
-    		{
-    				
-    		}
-    		
-    		//위처럼 사용하면 직업이 늘어나면 곤란해진다.
-    		//Knight와 Mage 둘다 Player를 상속받았기 때문에
-    		//Player 타입으로 받아서 사용할 수 있다.
-    
-    		//하지만 Mage는 mp를 사용해서 아래를 쓸 수 없다.
-    		//그래서 상속관계인 클래스간 형식 변환이 가능.
-    		static void EnterGame(Player player)
-    		{
-    				//Mage mage = (Mage)player;
-    				//mage.mp = 100;
-    			//위의 두줄을 쓰면 형변환에 실패해 크래쉬가 남.
-    			//또한 컴파일 단계에서 못잡아 실행시 클남.		
-    		}
-    
-    		static void Main(string[] args)
-    		{
-    				Knight knight = new Knight();
-    				Mage mage = new Mage();
-    				
-    				//Mage -> Player : 100 % 문제없이 가능
-    				Player magePlayer = mage;	
-    				//Player -> Mage : ? 
-    				Mage mage2 = (Mage)magePlayer;
-    			
-    				EnterGame(knight);
-    				EnterGame(mage);
-    		}
-    }
-    ```
+```csharp
+class Player
+{
+	protected int hp;
+	protected int attack;
+}
+
+class Knight : Player
+{
+
+}
+
+class Mage : Player
+{
+	public int mp;
+}
+
+class Program
+{
+	static void EnterGame(Knight k)
+	{
+			
+	}
+
+	static void EnterGame(Mage m)
+	{
+			
+	}
+	
+	//위처럼 사용하면 직업이 늘어나면 곤란해진다.
+	//Knight와 Mage 둘다 Player를 상속받았기 때문에
+	//Player 타입으로 받아서 사용할 수 있다.
+
+	//하지만 Mage는 mp를 사용해서 아래를 쓸 수 없다.
+	//그래서 상속관계인 클래스간 형식 변환이 가능.
+	static void EnterGame(Player player)
+	{
+		//형변환에 실패해 크래쉬가 남.
+		//또한 컴파일 단계에서 못잡아 실행시 클남
+		//Mage mage = (Mage)player;
+		//mage.mp = 100;
+	}
+
+	static void Main(string[] args)
+	{
+		Knight knight = new Knight();
+		Mage mage = new Mage();
+		
+		//Mage -> Player : 100 % 문제없이 가능
+		Player magePlayer = mage;	
+		//Player -> Mage : ? 
+		Mage mage2 = (Mage)magePlayer;
+	
+		EnterGame(knight);
+		EnterGame(mage);
+	}
+}
+```
     
 
 ## 기본 코드
 
 ```csharp
 class Player
-    {
-        public int hp;
-        public int attack;
-    }
-    class Knight : Player
-    {
-        public void Move() { Console.Write("Kight Move"); }
-        public void Attack() { Console.Write("Kight Attack"); }
-    }
+{
+	public int hp;
+	public int attack;
+}
+class Knight : Player
+{
+	public void Move() { Console.Write("Kight Move"); }
+	public void Attack() { Console.Write("Kight Attack"); }
+}
 
-    class Mage : Player
-    {
-				int mp;
+class Mage : Player
+{
+	int mp;
 
-        public void Move() { Console.Write("Maze Move"); }
-        public void Attack() { Console.Write("Maze Attack"); }
-    }
+	public void Move() { Console.Write("Maze Move"); }
+	public void Attack() { Console.Write("Maze Attack"); }
+}
 ```
 
 ## 자식 → 부모(업 캐스팅)

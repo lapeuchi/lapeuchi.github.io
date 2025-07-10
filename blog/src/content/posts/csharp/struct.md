@@ -7,14 +7,14 @@ upload: "2025-07-02"
 ```csharp
 struct PlayerStat
 {
-		public int hp;
-		public int attack;
+    public int hp;
+    public int attack;
 }
 
 static void SetPlayerStat
 {
-		player.hp = 100;
-		playerStat.attack = 30;
+    player.hp = 100;
+    playerStat.attack = 30;
 }
 ```
 
