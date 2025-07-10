@@ -16,33 +16,32 @@ lapeuchi@email.com
 </ul>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="csharp"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8"> </span></span>
 <span class="line"><span style="color:#E1E4E8">{</span></span>
-<span class="line"><span style="color:#6A737D">		//필드</span></span>
-<span class="line"><span style="color:#F97583">		public</span><span style="color:#F97583"> int</span><span style="color:#B392F0"> hp</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">		static</span><span style="color:#F97583"> public</span><span style="color:#F97583"> int</span><span style="color:#B392F0"> cnt</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">//한 개만 존재</span></span>
-<span class="line"><span style="color:#6A737D">		//생성자</span></span>
-<span class="line"><span style="color:#F97583">		public</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">() </span></span>
-<span class="line"><span style="color:#E1E4E8">		{</span></span>
-<span class="line"><span style="color:#E1E4E8">				counter</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">				hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">				attack </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">				</span></span>
-<span class="line"><span style="color:#E1E4E8">		}</span></span>
-<span class="line"><span style="color:#6A737D">		//함수</span></span>
-<span class="line"><span style="color:#F97583">		public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> Move</span><span style="color:#E1E4E8">() {}</span></span>
+<span class="line"><span style="color:#6A737D">    //필드</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> int</span><span style="color:#B392F0"> hp</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    static</span><span style="color:#F97583"> public</span><span style="color:#F97583"> int</span><span style="color:#B392F0"> cnt</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">//한 개만 존재</span></span>
+<span class="line"><span style="color:#6A737D">    //생성자</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">() </span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">        counter</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        attack </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#6A737D">	//함수</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> Move</span><span style="color:#E1E4E8">() {}</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Program</span></span>
 <span class="line"><span style="color:#E1E4E8">{</span></span>
-<span class="line"><span style="color:#F97583">		static</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> Main</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">[] </span><span style="color:#B392F0">args</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">	  {</span></span>
-<span class="line"><span style="color:#B392F0">				Knight</span><span style="color:#B392F0"> knight</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">				knight.hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#B392F0">				Knight</span><span style="color:#B392F0"> knight2</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">				knight2.hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 80</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#B392F0">				Knight</span><span style="color:#B392F0"> knight3</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">				knight3.hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 200</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#6A737D">			  //hp가 인스턴스마다 다를 수 있음</span></span>
-<span class="line"><span style="color:#E1E4E8">		}</span></span>
+<span class="line"><span style="color:#F97583">    static</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> Main</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">[] </span><span style="color:#B392F0">args</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#B392F0">        Knight</span><span style="color:#B392F0"> knight</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">        knight.hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">        Knight</span><span style="color:#B392F0"> knight2</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">        knight2.hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 80</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">        Knight</span><span style="color:#B392F0"> knight3</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Knight</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">        knight3.hp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 200</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">        //hp가 인스턴스마다 다를 수 있음</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <ul>
 <li>
