@@ -6,7 +6,7 @@ function setTheme(theme) {
 
   const emoji = theme === 'dark' ? '🌙' : '☀️';
   toggleEls.forEach(el => {
-    el.textContent = el.textContent.replace(/[🌙☀️]/g, '') + emoji;
+    el.textContent = "Lapeuchi's Devlog" + emoji;
   });
 }
 
