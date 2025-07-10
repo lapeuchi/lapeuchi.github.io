@@ -14,20 +14,20 @@ bool isDead = (hp <= 0);
 
 if(isDead) //죽었을 때 (hp <= 0)
 {
-	 Console.WriteLine("You are dead");
+    Console.WriteLine("You are dead");
 }
 else // 죽지 않았을 때 (hp > 0 || !isDead)
 {
-	 Console.WriteLine("You are alive");
+    Console.WriteLine("You are alive");
 }
 
 if(hp > 50 && isDead == false)   //체력이 50을 초과하고 
 {                                //죽지 않았을 때                                       
-	Console.WriteLine 
+    Console.WriteLine 
 }
 else if (hp >= 100 && !isDead) //체력이 100이상이고 죽지 않았을 때
 {
-	Console.WriteLine("You are Healthy")
+    Console.WriteLine("You are Healthy")
 }
 
 
@@ -41,16 +41,15 @@ else if (hp >= 100 && !isDead) //체력이 100이상이고 죽지 않았을 때
 int choice = 0;
 switch (choise)
 {
-	case 0: //choise가 0인 경우
-		Console.WriteLine("0");
-		choise
-		break; //조건문 탈출
-	case 2: //choise가 2인 경우
-		Console.WriteLine("2");
-		break;
-	default //나머지인 경우
-		Console.WriteLine("?");
-		break;
+    case 0: //choise가 0인 경우
+        Console.WriteLine("0");
+    break; //조건문 탈출
+    case 2: //choise가 2인 경우
+        Console.WriteLine("2");
+    break;
+    default: //나머지인 경우
+        Console.WriteLine("?");
+    break;
 }
 
 ```

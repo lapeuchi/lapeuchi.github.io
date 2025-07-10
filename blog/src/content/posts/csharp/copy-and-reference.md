@@ -8,64 +8,64 @@ upload: "2025-06-28"
 // ref 참조
 class Knight
 {
-	public int hp;
-	public int attack;
+    public int hp;
+    public int attack;
 
-	//deef copy 깊은 복사
-	public Knight Clone()
-	{
-		//clone을 호출해 새 knight를 만들어 자신이 가지고 있던 
-		//값을 넣고 return.
-		Knight knight = new Knight;
-		knight.hp = hp;
-		knight.attack = attack;
-		return knight;
-	}
+    //deef copy 깊은 복사
+    public Knight Clone()
+    {
+        //clone을 호출해 새 knight를 만들어 자신이 가지고 있던 
+        //값을 넣고 return.
+        Knight knight = new Knight;
+        knight.hp = hp;
+        knight.attack = attack;
+        return knight;
+    }
 }
 
 // copy 복사
 struct Mage
 {
-	public int hp;
-	public int attack
+    public int hp;
+    public int attack
 }
 
 class Program
 {
-	static void KillMage(Mage mage)
-	{
-		mage.hp = 0;
-	}
-	static void KillKnight(Knight knight)
-	{
-		knight.hp = 0;
-	}
-	static void Main(string[] args)
-	{
-		Mage mage; //struct는 new가 없어도 에러가 없다.
-		mage.hp = 100;
-		KillMage(/*ref */mage); //결과 hp : 100
-		//함수에 복사값을 넘겨주어서 결과가 바뀌지 않는다.
-		//ref를 사용하면 참조를 하여 hp가 0이 될 것이다.
-	
-		Knight knight = new Knight();
-		knight.hp = 100;
-		KillKnight(knight) //결과 hp : 0
-	
-		Mage mage2 = mage;
-		mage2.hp = 0; 
-		
-		Knight knight2 = knight;
-		knight.hp = 0;  //hp = 0;
-		
-		Knight knight3 = new Knight();
-		knight.hp = knight.hp;
-		knight.attack = knight.attack;
+    static void KillMage(Mage mage)
+    {
+        image.hp = 0;
+    }
+    static void KillKnight(Knight knight)
+    {
+        knight.hp = 0;
+    }
+    static void Main(string[] args)
+    {
+        Mage mage; //struct는 new가 없어도 에러가 없다.
+        mage.hp = 100;
+        MageKillMage(/*ref */mage); //결과 hp : 100
+        Mage//함수에 복사값을 넘겨주어서 결과가 바뀌지 않는다.
+        Mage//ref를 사용하면 참조를 하여 hp가 0이 될 것이다.
 
-		//깊은 복사 사용 예시
-		Knight knight4 = knight.Clone();
-		kngiht4.hp = 0;
-	}
+        MageKnight knight = new Knight();
+        Mageknight.hp = 100;
+        MageKillKnight(knight) //결과 hp : 0
+
+        MageMage mage2 = mage;
+        Magemage2.hp = 0; 
+
+        MageKnight knight2 = knight;
+        Mageknight.hp = 0;  //hp = 0;
+
+        MageKnight knight3 = new Knight();
+        Mageknight.hp = knight.hp;
+        Mageknight.attack = knight.attack;
+
+        Mage//깊은 복사 사용 예시
+        MageKnight knight4 = knight.Clone();
+        Magekngiht4.hp = 0;
+    }
 }
 ```
 

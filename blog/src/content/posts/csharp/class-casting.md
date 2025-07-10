@@ -4,17 +4,13 @@ tags: ["C#"]
 upload: "2025-07-02"
 ---
 
-- 참고 사이트
-    
-    [C# 클래스의 형변환, (is- as) - 네이버 블로그.url](C_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98_%ED%98%95%EB%B3%80%ED%99%98_(is-_as)_-_%EB%84%A4%EC%9D%B4%EB%B2%84_%EB%B8%94%EB%A1%9C%EA%B7%B8.url)
-    
 - 응용 코드
     
 ```csharp
 class Player
 {
-	protected int hp;
-	protected int attack;
+    protected int hp;
+    protected int attack;
 }
 
 class Knight : Player
@@ -24,48 +20,48 @@ class Knight : Player
 
 class Mage : Player
 {
-	public int mp;
+    public int mp;
 }
 
 class Program
 {
-	static void EnterGame(Knight k)
-	{
-			
-	}
-
-	static void EnterGame(Mage m)
-	{
-			
-	}
-	
-	//위처럼 사용하면 직업이 늘어나면 곤란해진다.
-	//Knight와 Mage 둘다 Player를 상속받았기 때문에
-	//Player 타입으로 받아서 사용할 수 있다.
-
-	//하지만 Mage는 mp를 사용해서 아래를 쓸 수 없다.
-	//그래서 상속관계인 클래스간 형식 변환이 가능.
-	static void EnterGame(Player player)
-	{
-		//형변환에 실패해 크래쉬가 남.
-		//또한 컴파일 단계에서 못잡아 실행시 클남
-		//Mage mage = (Mage)player;
-		//mage.mp = 100;
-	}
-
-	static void Main(string[] args)
-	{
-		Knight knight = new Knight();
-		Mage mage = new Mage();
+    static void EnterGame(Knight k)
+    {
 		
-		//Mage -> Player : 100 % 문제없이 가능
-		Player magePlayer = mage;	
-		//Player -> Mage : ? 
-		Mage mage2 = (Mage)magePlayer;
-	
-		EnterGame(knight);
-		EnterGame(mage);
-	}
+    }
+
+    static void EnterGame(Mage m)
+    {
+		
+    }
+
+    //위처럼 사용하면 직업이 늘어나면 곤란해진다.
+    //Knight와 Mage 둘다 Player를 상속받았기 때문에
+    //Player 타입으로 받아서 사용할 수 있다.
+
+    //하지만 Mage는 mp를 사용해서 아래를 쓸 수 없다.
+    //그래서 상속관계인 클래스간 형식 변환이 가능.
+    static void EnterGame(Player player)
+    {
+        //형변환에 실패해 크래쉬가 남.
+        //또한 컴파일 단계에서 못잡아 실행시 클남
+        //Mage mage = (Mage)player;
+        //mage.mp = 100;
+    }
+
+    static void Main(string[] args)
+    {
+        Knight knight = new Knight();
+        Mage mage = new Mage();
+
+        //Mage -> Player : 100 % 문제없이 가능
+        Player magePlayer = mage;	
+        //Player -> Mage : ? 
+        Mage mage2 = (Mage)magePlayer;
+
+        EnterGame(knight);
+        EnterGame(mage);
+    }
 }
 ```
     
@@ -75,21 +71,21 @@ class Program
 ```csharp
 class Player
 {
-	public int hp;
-	public int attack;
+    public int hp;
+    public int attack;
 }
 class Knight : Player
 {
-	public void Move() { Console.Write("Kight Move"); }
-	public void Attack() { Console.Write("Kight Attack"); }
+    public void Move() { Console.Write("Kight Move"); }
+    public void Attack() { Console.Write("Kight Attack"); }
 }
 
 class Mage : Player
 {
-	int mp;
+    int mp;
 
-	public void Move() { Console.Write("Maze Move"); }
-	public void Attack() { Console.Write("Maze Attack"); }
+    public void Move() { Console.Write("Maze Move"); }
+    public void Attack() { Console.Write("Maze Attack"); }
 }
 ```
 
@@ -159,7 +155,7 @@ Player player = new Knight();
 bool isMage = (player is Mage) // 결과 : false
 
 if(isMage == true)
-	 Mage mage = (Mage)Player;
+    Mage mage = (Mage)Player;
 ```
 
 ### 키워드 : as
@@ -173,6 +169,7 @@ if(isMage == true)
 Player player = new Mage();
 
 Mage mage = (Player as Mage)
+
 if (mage != null)
-		Mage mage = (Mage)player;
+    Mage mage = (Mage)player;
 ```

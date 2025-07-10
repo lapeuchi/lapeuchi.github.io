@@ -16,32 +16,32 @@ upload: "2025-06-28"
 ```csharp
 class Mob
 {
-	enum _type { boss, field };
+    enum _type { boss, field };
 	
-	public Mob()
-	{
-		hp = 100;
-		attack = 10;				
-	}
+    public Mob()
+    {
+        hp = 100;
+        attack = 10;				
+    }
 
-	public Mob(enum type) : this()
-	{
-		_type = type
-		if(_type == _type.boss)
-		{
-				hp = 400;
-				attack = 30;
-		}
-	}
+    public Mob(enum type) : this()
+    {
+        _type = type
+        if(_type == _type.boss)
+        {
+            hp = 400;
+            attack = 30;
+        }
+    }
 
-	public Mob(enum type) : this()
-	{  
-	_type = type
-	if(_type == _type.boss)
-	{
-			hp = 400;
-			attack = 30;
-	}
-	}
+    public Mob(enum type) : this()
+    {  
+        _type = type
+        if(_type == _type.boss)
+        {
+            hp = 400;
+            attack = 30;
+        }
+    }
 }
 ```

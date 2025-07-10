@@ -16,16 +16,16 @@ const int SCISSORS = 0;
 
 switch(choice) //입력받은 정수값
 {
-	case ROCK:
-	break;
+    case ROCK:
+    break;
 
-	case Paper:
-	break;
+    case Paper:
+    break;
 
-	case SCISSORS:
-	break;
+    case SCISSORS:
+    break;
 
-	default
-	break;
+    default
+    break;
 }
 ```

@@ -27,7 +27,7 @@ const headings = extractHeadings(body);
 
   <div class="tags">
     {data.tags?.map(tag => (
-      <span class="tag badge text-dark">#{tag}</span>
+      <span class="tag badge text-dark">{tag}</span>
     ))}
   </div>
   
@@ -37,7 +37,7 @@ const headings = extractHeadings(body);
       <ul>
         {headings.map(({ level, id, text }) => (
           <li class={`level-${level}`}>
-            <a href={`${id}`}>{text}</a>
+            <a href={`#${id}`}>{text}</a>
           </li>
         ))}
       </ul>
