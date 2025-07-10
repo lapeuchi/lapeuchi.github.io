@@ -5,8 +5,9 @@ function setTheme(theme) {
   localStorage.setItem('theme', theme);
 
   const emoji = theme === 'dark' ? '🌙' : '☀️';
+  const title = "Lapeuchi's Devlog" + emoji;
   toggleEls.forEach(el => {
-    el.textContent = "Lapeuchi's Devlog" + emoji;
+    el.textContent = title;
   });
 }
 
