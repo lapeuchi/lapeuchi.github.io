@@ -1,0 +1,38 @@
+---
+title: "정수 타입"
+tags: ["C#"]
+upload: "2025-06-28"
+--- 
+
+```csharp
+using System;
+
+namespace CSarp
+{
+		class Program
+		{
+				 static void Main(string[] args)
+				 {
+						 // 코드 = 데이터 + 로직
+						int hp;
+						hp = 100;
+						Console.WriteLine("Hello Number ! {0}", hp);
+				 }			
+		}
+}
+```
+
+### 정수형 변수 타입
+
+- byte : 1byte(0~255)
+- short : 2byte(-3만 ~ 3만)
+- int : 4byte(-21억 ~ 21억)
+- long : 8byte
+- sbyte : 1byte(-128 ~ 127)
+- ushort : 2byte(0 ~ 6만)
+- uint : 4byte (0 ~ 43억)
+- ulong : 8byte
+
+사용하는 변수 타입의 한계를 넘어가면 언더, 오버 플로우가 발생한다. 
+
+→ 최댓값에서 넘어가면 끝 값으로 변한다.
