@@ -79,13 +79,13 @@ ex) $ x^2 + 5xy + 6y = y(x^2 + 5x + 6) = y(x + 2)(x + 3)$
 ex)
 
 $$
-\begin{aligned}
+\begin{align*}
   (x + 3)^2 + 5(x + 3) + 6 
   &= A^2 + 5A + 6 \\
   &= (A + 2)(A + 3) \\
   &= (x + 3 + 2)(x + 3 + 3) \\
   &= (x + 5)(x + 6)
-\end{aligned}
+\end{align*}
 $$
 
 ## 삼차식의 인수분해
