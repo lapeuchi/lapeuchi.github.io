@@ -7,6 +7,7 @@
 
     border-bottom: 1px solid var(--borderColor);
     background-color: var(--bgColor);
+    transition: background-color 0.3s ease;
 }
 
 .custom-navbar-title {
