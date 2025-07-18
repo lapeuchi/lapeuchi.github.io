@@ -40,8 +40,8 @@ a {
 a:hover {
   color: var(--hover-textColor);
   transition: color 0.3s ease;
+  transform: scale(1.03);
   text-decoration: none;
-  font-weight: bold;
 }
 
 
