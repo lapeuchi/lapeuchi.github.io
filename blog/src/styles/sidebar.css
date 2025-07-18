@@ -14,12 +14,8 @@
   border-right: 1px solid var(--borderColor);
   
   box-shadow: rgba(0, 0, 0, 0.5);
-  
-  background-color: var(--bgColor);
-  transition: background-color 0.3s ease;
 
-  color: var(--text-color);
-  transition: color 0.3s ease;
+  background-color: var(--bgColor);
 }
 
 .profile {
