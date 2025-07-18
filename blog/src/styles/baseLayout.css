@@ -23,6 +23,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
+
+  background-color: var(--bgColor);
+  color: var(--normal-textColor);
+
+  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 /* 본문 영역 */
@@ -31,11 +37,7 @@ main {
   padding: 4rem 2.6rem;
   flex-grow: 1;
 
-  background-color: var(--bgColor);
-  color: var(--normal-textColor);
-
-  transition: color 0.3s ease;
-  transition: background-color 0.3s ease;
+  
 }
 
 /* 사이드바 전용 (넓을 때만 보임) */
