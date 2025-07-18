@@ -2,12 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--text-color);
     padding: 0.75rem 1.5rem;
 
     border-bottom: 1px solid var(--borderColor);
-    background-color: var(--bgColor);
-    transition: background-color 0.3s ease;
 }
 
 .custom-navbar-title {
@@ -16,8 +13,6 @@
     font-weight: bold;
     cursor: pointer;
 
-    color: var(--text-color);
-    transition: color 0.3s ease;
 }
 
 .custom-navbar-list {
@@ -26,16 +21,4 @@
     gap: 1.25rem;
     margin: 0;
     padding: 0;
-}
-
-.custom-navbar-link {
-    text-decoration: none;
-
-    color: var(--text-color);
-    transition: color 0.3s ease;
-}
-
-.custom-navbar-link:hover {
-    color: var(--hover-color);
-    transition: color 0.3s ease;
 }

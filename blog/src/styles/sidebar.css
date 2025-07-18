@@ -14,7 +14,6 @@
   border-right: 1px solid var(--borderColor);
   
   box-shadow: rgba(0, 0, 0, 0.5);
-
 }
 
 .profile {
@@ -39,17 +38,6 @@
   margin-bottom: 0.4rem;
 }
 
-.profile .email a {
-  color: var(--text-color);
-  text-decoration: none; 
-}
-
-.profile .email a:hover {
-  text-decoration: none;
-  font-weight: bold;
-  color: var(--hover-color);
-}
-
 /* 링크 스타일 */
 .profile .sns-icons i {
   display: inline;
@@ -64,12 +52,6 @@
 .sidebar-menu a {
   color: var(--text-color);
   text-decoration: none;
-}
-
-.sidebar-menu a:hover {  
-  text-decoration: none;
-  font-weight: bold;
-  color: var(--hover-color);
 }
 
 .sidebar-head {
