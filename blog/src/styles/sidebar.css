@@ -48,11 +48,7 @@
 
 .sidebar-menu li {
   margin-bottom: 0.4rem;
-}
-
-.sidebar-menu a {
-  color: var(--text-color);
-  text-decoration: none;
+  list-style: none;
 }
 
 .sidebar-head {
