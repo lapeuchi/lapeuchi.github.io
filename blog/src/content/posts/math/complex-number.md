@@ -177,7 +177,7 @@ $
 
 예시)
 * $i^93 = i^{4 \times 23 + 1} = (i^4)^23 \cdot i^1 = 1 \cdot i^1 = i$ 
-* $i^342 = i^{4 \times 85 + 2} = (i^4)^85 \cdot i^2 = 1 \cdot i^2 = -1$*
+* $i^342 = i^{4 \times 85 + 2} = (i^4)^85 \cdot i^2 = 1 \cdot i^2 = -1$
 * $i^703 = i^{4 \times 175 + 3} = (i^4)^175 \cdot i^3 = 1 \cdot i^3 = -i$
 * $i^100 = i^{4 \times 25 + 0} = (i^4)^25 \cdot i^0 = 1 \cdot i^0 = 1$
 
