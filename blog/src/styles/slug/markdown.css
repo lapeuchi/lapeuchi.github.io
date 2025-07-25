@@ -32,13 +32,25 @@
   font-size: 1.4rem;
 }
 
+/*인용 블럭*/
 .markdown-body blockquote {
-  border-left: 4px solid var(--blockquote-color);
-  padding-left: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   
-  margin: 1rem 0;
-  font-weight: bold;
-  font-style: italic;
+  padding-left: 1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+
+  border-left: 5px solid var(--blockquote-color);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #b2b2b232;
+}
+
+/*인용 블럭 내 글*/
+.markdown-body blockquote p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .markdown-body table {
@@ -63,4 +75,9 @@
 pre {
   border-radius: 8px;
   padding: 1rem;
+}
+
+/*수식*/
+.MathJax {
+  
 }

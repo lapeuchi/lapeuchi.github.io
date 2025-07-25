@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from 'astro-sitemap';
 import rehypeSlug from 'rehype-slug';
-
+import remarkMath from 'remark-math';
+import rehypeMathjax from 'rehype-mathjax';
 
 export default defineConfig({
   outDir: 'dist',
@@ -10,7 +11,8 @@ export default defineConfig({
   base: '/',
 
   markdown: {
-    rehypePlugins: [rehypeSlug],
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeSlug, rehypeMathjax], // rehype-katex ❌
   },
   
   vite: {
