@@ -1,0 +1,12 @@
+<script is:inline>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script>
+<!-- 테마 변경 코드 -->
+<script src="/utils/theme.js" defer></script>
