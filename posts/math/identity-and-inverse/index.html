@@ -18,19 +18,57 @@
         }
       };
     </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="항등원과 역원"><title>항등원과 역원 | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 250px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
-:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}:root{--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--blockquote-color: rgb(255, 199, 67)}.markdown-body img{display:block;max-width:70%;margin:1rem 0;height:auto}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{border-left:4px solid var(--blockquote-color);padding-left:1rem;margin:1rem 0;font-weight:700;font-style:italic}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}pre{border-radius:8px;padding:1rem}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}:root{--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--blockquote-color: rgb(255, 199, 67)}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{border-left:4px solid var(--blockquote-color);padding-left:1rem;margin:1rem 0;font-weight:700;font-style:italic}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}pre{border-radius:8px;padding:1rem}
 </style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
 lapeuchi@email.com
-</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(3)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h1 class="title">항등원과 역원</h1> <span class="upload">2025-07-18</span> <div class="tags"> <span class="tag badge text-dark">수학</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#항등원">항등원</a> </li><li class="level-2"> <a href="#역원">역원</a> </li> </ul> </div><article class="markdown-body"> <h2 id="항등원">항등원</h2>
-<p>임의의 수 $a$에 대하여</p>
-<p>$a * e = e * a = a$ 를 만족시키는<br>
-$e$를 연산 $*$에 대한 항등원이라 한다.</p>
-<p>덧셈에 대한 항등원은 $0$이다.<br>
-곱셈에 대한 항등원은 $1$이다.</p>
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h1 class="title">항등원과 역원</h1> <span class="upload">2025-07-18</span> <div class="tags"> <span class="tag badge text-dark">수학</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#항등원">항등원</a> </li><li class="level-3"> <a href="#덧셈에-대한-항등원">덧셈에 대한 항등원</a> </li><li class="level-3"> <a href="#곱셈에-대한-항등원">곱셈에 대한 항등원</a> </li><li class="level-2"> <a href="#역원">역원</a> </li><li class="level-3"> <a href="#덧셈에-대한-역원">덧셈에 대한 역원</a> </li><li class="level-3"> <a href="#곱셈에-대한-항등원">곱셈에 대한 항등원</a> </li> </ul> </div><article class="markdown-body"> <h2 id="항등원">항등원</h2>
+<p>임의의 수 $ a $에 대하여 $ a * e = e * a = a $를 만족시키는 $ e $를 연산 $ * $에 대한 항등원이라 한다.</p>
+<p>위 식에서 $ e $는 항등원을 문자로 표현한 것이고,<br>
+교환법칙이 성립되기 때문에 $ * $은 덧셈이나 곱셈을 의미한다.</p>
+<p>어떠한 $ a $라는 수를 항등원 $ e $와 $ * $ 연산을 했는데 그 결과가 $ a $ 자기자신이 된다고 하면 이때 $ e $가 항등원이 된다.</p>
+<blockquote>
+<p>주의 사항</p>
+<p>항등원을 구할 때는 주어진 연산에 대해 교환법칙이 성립할 때만 항등원을 구할 수 있다.</p>
+</blockquote>
+<h3 id="덧셈에-대한-항등원">덧셈에 대한 항등원</h3>
+<p>*연산을 덧셈이라 하고 a를 5.56이라 하고 식에 넣어보자</p>
+<p>$ 5.56 + e = e + 5.56 = 5.56 $을 만족시키는 $ e $는 $ 0 $이다.</p>
+<p>a에 5.56말고 어떤게 들어가도 식을 만족시키는 e는 0이다.</p>
+<p><strong>따라서 덧셈에 대한 항등원은 $ 0 $이다.</strong></p>
+<p>교환법칙이 성립하기 때문에 덧셈에 대한 항등원이 존재하고 뻴셈에 대한 항등원은 존재하지 않는다.</p>
+<h3 id="곱셈에-대한-항등원">곱셈에 대한 항등원</h3>
+<p>*연산을 곱셈이라 하고 a를 6.67이라 하고 식에 넣어보자</p>
+<p>$ 6.67 \times e = e \times 6.67 = 6.67 $을 만족시키는 $ e $는 $ 1 $이다.</p>
+<p>a에 6.67말고 어떤게 들어가도 식을 만족시키는 e는 1이다.</p>
+<p><strong>따라서 곱셈에 대한 항등원은 $ 1 $이다.</strong></p>
+<p>교환법칙이 성립하기 때문에 곱셈에 대한 항등원이 존재하고 나눗셈에 대한 항등원은 존재하지 않는다.</p>
 <hr>
 <h2 id="역원">역원</h2>
-<p>임의의 수 $a$에 대하여</p>
-<p>$a * x = x * a = e$ 를 만족시키는<br>
-$x$를 연산 $*$에 대한 역원이라고 한다.</p>
-<p>덧셈에 대한 역원은 부호가 반대인 수이다. (반수)<br>
-곱셈에 대한 역원은 지수의 부호가 반대인 수이다. (역수)</p> </article>  </main> </body></html>
+<p>임의의 수 $ a $에 대하여</p>
+<p>$ a * x = x * a = e $를 만족시키는</p>
+<p>$ x $를 연산 $ * $에 대한 역원이라고 한다.</p>
+<p>식에서 $ a $와 $ x $를 $ * $ 연산으로 계산하는데 계산 결과는 항등원 $ e $가 된다. $ e $는 $ * $ 연산에 대한 항등원이다.<br>
+또한 $ * $ 연산는 교환법칙이 성립된다.</p>
+<p>다시 말해
+$ a $에 $ x $를 $ * $ 연산했을 때 결과가 항등원 $ e $가 되게하는 $ x $를 $ * $ 연산에 대한 역원이라 한다.</p>
+<blockquote>
+<p>주의 사항</p>
+<ol>
+<li><strong>항등원이 존재할 때만 역원이 존재한다.</strong></li>
+<li><strong>항등원이 존재하더라도 역원이 존재하지 않을 수 있다.</strong></li>
+</ol>
+</blockquote>
+<h3 id="덧셈에-대한-역원">덧셈에 대한 역원</h3>
+<p>$ * $ 연산을 덧셈이라 하고 $ a $를 $ 7.78 $이라 하고 식에 넣어보자<br>
+덧셈에 대한 항등원은 0이기 때문에 $ e $는 $ 0 $이다.</p>
+<p>$ 7.78 + x = x + 7.78 = 0 $을 만족시키는 $ x $는 $ -7.78 $이다.</p>
+<p>$ a $에 $ 7.78 $ 대신 어떠한 수를 넣어도 x는 $ a $의 반대 부호가 붙은 수가 나온다.<br>
+다시 말해 $ a + x = x + a = 0 $을 만족시키는 $ x $는 $ -a $이다.</p>
+<p>따라서 <strong>덧셈에 대한 역원은 $ -a $로, 즉 부호가 반대인 수이다. (반수)</strong></p>
+<h3 id="곱셈에-대한-항등원-1">곱셈에 대한 항등원</h3>
+<p>$ * $ 연산을 곱셈이라 하고 $ a $를 8라고 하자<br>
+곱셈에 대한 항등원은 1이기 때문에 $ e $는 $ 1 $이다.</p>
+<p>$ 8 \times x = x \times 8 = 1 $을 만족시키는 $ x $는 $ \frac{1}{8} $이다.</p>
+<p>a에 어떤값을 넣어도 a의 역수가 나오는 것을 알 수 있다.<br>
+다시 말해 $ a \times x = x \times a = 1 $을 만족시키는 $ x $는 $ \frac{1}{a} $이다.</p>
+<p>따라서 <strong>곱셈에 대한 역원은 $ a $의 역수 즉, 지수의 부호가 반대인 수이다.</strong></p> </article>  </main> </body></html>
