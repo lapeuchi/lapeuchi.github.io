@@ -3,12 +3,13 @@ import sitemap from 'astro-sitemap';
 import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
+import robotsTxt from 'astro-robots-txt';
 
 export default defineConfig({
   // 빌드 시 사이트 맵 자동 생성
   outDir: 'dist',
   site: 'https://lapeuchi.github.io',
-  integrations: [sitemap()],
+  integrations: [sitemap(), robotsTxt()],
   base: '/',
 
   markdown: {
