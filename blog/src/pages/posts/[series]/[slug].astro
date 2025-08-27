@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/baseLayout.astro';
 import { getAllPostPaths } from '@/utils/staticPaths';
 import { extractHeadings } from '@/utils/extractHeadings';
-import { getPostData } from '@/utils/post';
+import { getPostData, getSeriesData } from '@/utils/post';
 
 import '@/styles/[slug].css'
 import '@/styles/slug/markdown.css'
@@ -19,10 +19,14 @@ const { Content } = rendered;
 const { body } = post;
 const data = post.data;
 const headings = extractHeadings(body);
+
+const seriesName = await getSeriesData(series);
 ---
 
 <BaseLayout title={data.title} description={data.title}>  
-  <h1 class="title">{data.title}</h1>  
+  <h6><a href="./">{seriesName.title} 👉</a></h6>
+  <h1 class="title">{data.title}</h1>
+  
   <span class="upload">{data.upload}</span>
 
   <div class="tags">
