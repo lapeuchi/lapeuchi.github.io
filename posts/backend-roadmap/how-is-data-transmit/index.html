@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="데이터는 어떻게 전송될까?"><title>데이터는 어떻게 전송될까? | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 250px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}:root{--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--blockquote-color: rgb(255, 199, 67)}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(10)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="./">백엔드 개발자 로드맵 👉</a></h6> <h1 class="title">데이터는 어떻게 전송될까?</h1> <span class="upload">2025-08-28</span> <div class="tags"> <span class="tag badge text-dark">cs</span><span class="tag badge text-dark">backend</span><span class="tag badge text-dark">network</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#데이터가-송수신되는-과정">데이터가 송수신되는 과정</a> </li><li class="level-2"> <a href="#osi-7-계층-osi-7-layers">OSI 7 계층 (OSI 7 Layers)</a> </li><li class="level-2"> <a href="#tcpip-4-계층-tcpip-4-layers">TCP/IP 4 계층 (TCP/IP 4 Layers)</a> </li> </ul> </div><article class="markdown-body"> <h2 id="데이터가-송수신되는-과정">데이터가 송수신되는 과정</h2>
+<p><img src="https://westahn.com/wp-content/uploads/2024/02/OSI7OSI4.png" alt="이미지"></p>
+<p>위 이미지를 기준으로 설명하겠다.</p>
+<p>OSI 7 계층과 TCP/IP4 계층은 데이터가 인터넷을 통해 어떻게 전달되는지 보여주는 모델이다.</p>
+<p>두 모델 사이에 있는건 각 계층에서 사용하는 프로토콜이다.</p>
+<p>데이터를 보내는 입장은 제일 아래 계층에서, 받는 입장은 제일 위 계층에서부터 시작한다는 것을 알고 있으면 좋다.</p>
+<h2 id="osi-7-계층-osi-7-layers">OSI 7 계층 (OSI 7 Layers)</h2>
+<p>OSI 7계층은 국제표준화기구(ISO)에서 데이터가 송수신되는 과정을 7개의 계층으로 나누어 정리한 것이다.<br>
+OSI 7 Layers가 현실에서 일어나는 네트워킹과는 완전히 대응되지 않지만, 프로토콜이나 기술들의 기반이 되기도 한다.</p>
+<p>각 계층을 설명하기 전 다음과 같은 용어를 숙지해야 한다.</p>
+<ul>
+<li>
+<p>노드(Node): 네트워크 상의 장치나 시스템을 의미하며, 데이터가 통신하는 과정에서 거치게 되는 각 지점 또는 컴퓨터 자체를 가리킨다. 즉, 네트워크를 구성하는 라우터, 스위치, 서버, 또는 PC 등 통신에 참여하는 모든 컴퓨터나 장치들이다.</p>
+</li>
+<li>
+<p>호스트(Host): 통신 데이터의 최종 목적지 또는 출발지인 최종 사용자 장치 자체</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>물리 계층<br>
+데이터를 비트 단위의 전기신호로 만들어 송수신한다. 오로지 데이터를 전달하는 목적을 가지고 어떤 데이터인지, 어떤 에러가 있는지 등에 관여하지 않는다.
+대표적인 장비는 통신 케이블, 리피터, 허브가 있다.</p>
+</li>
+<li>
+<p>데이터링크 계층
+패킷이 도착했을 때 MAC 주소를 통해 host에게 전달한다.
+대표적인 장비는 브릿지, 스위치가 있다.</p>
+</li>
+<li>
+<p>Network Layer: 데이터 패킷의 라우팅 담당
+서로 다른 네트워크에 위치하는 host 간에 데이터를 주고 받을 때 작동하며, 목적지까지 갈 수 있는 다양한 길들 중에 최단거리를 찾는 일 등을 한다.
+목적지까지의 경로가 적합한지 확인하는 Routing, 각 장치를 고유하게 식별할 수 있게 하는 Logical addressing과 같은 처리를 담당한다.
+대표적인 장비는 라우터이다.</p>
+</li>
+<li>
+<p>Transport Layer: 데이터 전송의 신뢰성 보장
+이 레이어에서의 데이터 단위를 segment라고 하며, 완전한 메세지(complete message)를 end-to-end로 전달하는 역할을 한다.
+또한 데이터 전송이 성공적으로 완료되었는지 확인하고, error가 발견되면 데이터를 다시 보내는(re-transmit) 역할을 한다.
+TCP와 UDP를 대표적인 예로 들 수 있다.</p>
+</li>
+<li>
+<p>Session Layer: 통신 세션 관리
+이 레이어는 connection(연결) 유지, session의 유지 및 인증, 보안을 담당한다.</p>
+</li>
+<li>
+<p>Presentation Layer: 데이터 형식을 변환
+이 레이어는 Translation Layer라고도 한다. Application Layer의 데이터를 네트워크에 전송하기 위해 요구되는 format으로 조작한다.</p>
+</li>
+<li>
+<p>Application Layer: 최종 사용자의 응용 프로그램과 직접적으로 관련되는 부분
+최상위 계층으로서, 사용자/어플리케이션이 네트워크에 접속할 수 있게 해주는 계층이다.
+end system이 이메일과 같은 서비스를 제공받기 위해 어떤 형식으로 메세지를 주고 받아야하는지에 대한 프로토콜이 모여 있는 레이어이다.
+socket이나 port number가 이 레이어와 관련이 되어 있는 지식이다.</p>
+</li>
+</ol>
+<h2 id="tcpip-4-계층-tcpip-4-layers">TCP/IP 4 계층 (TCP/IP 4 Layers)</h2> </article>  </main> </body></html>
