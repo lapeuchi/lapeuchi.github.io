@@ -71,6 +71,11 @@
   color: var(--textColor);
 }
 
+.markdown-body a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 /*코드 영역*/
 pre {
   border-radius: 8px;
