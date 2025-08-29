@@ -1,5 +1,5 @@
 :root {
-  --sidebar-width: 250px;
+  --sidebar-width: 300px;
   --navbar-height: 50px;
 
   --bgColor: #ffffff; /*배경색*/
@@ -8,13 +8,17 @@
   --hover-textColor: #00b3ff; /*하이퍼 링크 호버 색상*/
   --fade-textColor: #5a5a5a; /*흐릿한 글자 색상*/
   --borderColor: #353535; /*섹션을 나누는 선 색상*/
+
+  --blockquote-color: rgb(124, 199, 113);
 }
 
 :root[theme='dark'] {
   --bgColor: #373C3F;
   --normal-textColor: #ffffff;
   --fade-textColor: #b3b3b3;
-  --borderColor: #aeaeae; 
+  --borderColor: #aeaeae;
+
+  --blockquote-color: rgb(255, 199, 67);
 }
 
 /* 전체 레이아웃 */
@@ -29,6 +33,24 @@ body {
 
   transition: color 0.3s ease;
   transition: background-color 0.3s ease;
+
+}
+
+::-webkit-scrollbar {
+    display: block;
+    width: 0.7rem;
+    
+}
+::-webkit-scrollbar-track, ::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--borderColor);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--blockquote-color);
 }
 
 a {
@@ -43,7 +65,6 @@ a:hover {
   transform: scale(1.03);
   text-decoration: none;
 }
-
 
 /* 본문 영역 */
 main {
