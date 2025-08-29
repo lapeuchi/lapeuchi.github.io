@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="TCP/IP 그리고 TCP와 UDP의 차이가 뭘까요"><title>TCP/IP 그리고 TCP와 UDP의 차이가 뭘까요 | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 300px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535;--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae;--blockquote-color: rgb(255, 199, 67)}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}::-webkit-scrollbar{display:block;width:.7rem}::-webkit-scrollbar-track,::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-thumb{background-color:var(--borderColor);border-radius:10px}::-webkit-scrollbar-thumb:hover{background-color:var(--blockquote-color)}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(10)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="./">백엔드 개발자 로드맵 👉</a></h6> <h1 class="title">TCP/IP 그리고 TCP와 UDP의 차이가 뭘까요</h1> <span class="upload">2025-08-28</span> <div class="tags"> <span class="tag badge text-dark">cs</span><span class="tag badge text-dark">backend</span><span class="tag badge text-dark">network</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#개요">개요</a> </li><li class="level-2"> <a href="#ipinternet-protocol">IP(Internet Protocol)</a> </li><li class="level-2"> <a href="#tcp-transmission-control-protocol">TCP (Transmission Control Protocol)</a> </li><li class="level-3"> <a href="#tcp의-3-way-handshake">TCP의 3 way handshake</a> </li><li class="level-3"> <a href="#tcp가-패킷-순서를-보장하는-방법">TCP가 패킷 순서를 보장하는 방법</a> </li><li class="level-2"> <a href="#udp-user-datagram-protocol-사용자-데이터그램-프로토콜">UDP (User Datagram Protocol, 사용자 데이터그램 프로토콜)</a> </li><li class="level-2"> <a href="#tcp와-udp의-차이">TCP와 UDP의 차이</a> </li><li class="level-2"> <a href="#tcpip">TCP/IP</a> </li> </ul> </div><article class="markdown-body"> <h2 id="개요">개요</h2>
+<p>프로토콜 관련해서 TCP/IP라는걸 정말 많이 들어봤을 것이다.
+TCP와 IP를 합쳐서 TCP/IP라고 많이 하는데 TCP, IP 두 프로토콜에 대해 알아보고 왜 둘을 붙여서 부르는지도 알아보자.</p>
+<p>그리고 안정적인 TCP 대신 가끔씩 속도가 생명인 컨텐츠에서 쓰이는 UDP, 그리고 TCP와의 차이도 같이 알아보도록하자.</p>
+<h2 id="ipinternet-protocol">IP(Internet Protocol)</h2>
+<p>비연결의 서비스를 제공하며, 발신지와 목적지까지의 라우팅 경로를 설정한다.</p>
+<p>IP는 패킷을 최대한 빠르게, 정확한 목적지로 보내는 프로토콜이다.</p>
+<p>패킷 전달 여부를 보증하지 않고, 패킷을 보낸 순서와 받는 순서가 다를 수 있다.</p>
+<h2 id="tcp-transmission-control-protocol">TCP (Transmission Control Protocol)</h2>
+<p>TCP는 패킷이 손실되지 않고, 순서대로 잘 도착하도록 확인하는 프로토콜이다.</p>
+<p>손실없이 차례대로 보내기 때문에 전송속도는 느리다.</p>
+<p>패킷이 도착했을 때 패킷이 손실되거나 손상되어 있으면 출발지에 재전송해달라는 요청을 한다.</p>
+<h3 id="tcp의-3-way-handshake">TCP의 3 way handshake</h3>
+<p>TCP는 데이터를 상대방에게 확실하게 보내기 위해서 <strong>3 way 핸드쉐이킹</strong>이라는 방법을 사용하고 있다. 이 방법은 패킷을 보내고 잘 보내졌는지 여부를 상대에게 확인하러 간다.</p>
+<p>본격적인 상대 클라이언트와 연결되기 전, 가상 연결을 하여 패킷을 보내 확인하는 동작이다.</p>
+<p>아래는 3 way handshake에서 동작 과정 중 사용하는 패킷이다.</p>
+<ul>
+<li>SYN: 연결을 생성할 때 클라이언트가 서버에 시퀀스 번호를 보내닌 패킷 (접속 요청)</li>
+<li>SYN-ACK: 시퀀스 번호를 받은 서버가 ACK 값을 생성하여 클라이언트에게 응답하는 패킷</li>
+<li>ACK: ACK 값을 사용하여 응답하는 패킷 (요청 수락)</li>
+</ul>
+<p>3 way handshake의 동작 과정</p>
+<ol>
+<li>클라이언트 -> 서버: SYN 패킷 전송</li>
+<li>서버 -> 클라이언트: SYN + ACK 패킷 전송</li>
+<li>클라이언트 -> 서버: ACK + 데이터 패킷 전송</li>
+<li>데이터 패킷 전송</li>
+</ol>
+<h3 id="tcp가-패킷-순서를-보장하는-방법">TCP가 패킷 순서를 보장하는 방법</h3>
+<p>TCP가 패킷 순서를 제어할 수 있는 이유는 TCP 데이터 안에 전송 제어, 순서 같이 정보들이 있기 때문에 가능한 것이다.</p>
+<p>아래는 패킷1, 패킷2, 패킷3을 각각 차례대로 전송해야 하는 상황에서 서버에서 순서를 꼬이게 받았을 때 예시 상황이다.</p>
+<ol>
+<li>클라이언트에서 패킷1, 패킷2, 패킷3 순서로 전송</li>
+<li>서버에서 패킷1, 패킷3, 패킷2 순서로 받음</li>
+<li>서버에서 패킷2 부터 다시 보내라고 클라이언트에게 요청</li>
+</ol>
+<h2 id="udp-user-datagram-protocol-사용자-데이터그램-프로토콜">UDP (User Datagram Protocol, 사용자 데이터그램 프로토콜)</h2>
+<p>TCP의 반대라고 생각하면 쉽다. TCP는 ‘꼼꼼함’이 특징이라면 UDP는 ‘대충 빨리’같은 느낌이 특징이다.</p>
+<p>비 연결지향적에 패킷 순서 보장이 안된다. 하지만 TCP에 비해 전송이 빠르다.</p>
+<p>TCP에 비교해서 기능이 거의 없어 단순하고<br>
+IP에서 PORT와 체크섬(메시지 검증해주는 데이터) 정도만 추가된 형태라고 생각하면 된다.<br>
+IP에 기능이 거의 추가되지 않은 하얀 도화지 같은 상태이기 때문에 최적화 및 커스터마이징이 용이하다.</p>
+<h2 id="tcp와-udp의-차이">TCP와 UDP의 차이</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th><strong>TCP</strong></th><th><strong>UDP</strong></th></tr></thead><tbody><tr><td>연결 방식</td><td>연결지향형 프로토콜</td><td>비 연결지향형 프로토콜</td></tr><tr><td>데이터 전송 방식</td><td>바이트 스트림 기반 연결</td><td>메세지 스트림 기반 연결</td></tr><tr><td>제어 기능</td><td>혼잡제어, 흐름제어 지원</td><td>혼잡제어, 흐름제어 없음</td></tr><tr><td>순서 보장</td><td>전송 순서 보장, 상대적으로 느림</td><td>순서 보장 없음, 상대적으로 빠름</td></tr><tr><td>신뢰성</td><td>신뢰성 있는 데이터 전송 (안정적)</td><td>데이터 전송 보장 없음</td></tr><tr><td>데이터 단위</td><td>세그먼트 (TCP 패킷)</td><td>데이터그램 (UDP 패킷)</td></tr><tr><td>활용 예시</td><td>HTTP, Email, 파일 전송</td><td>실시간 게임 서버, DNS, 실시간 스트리밍 서비스</td></tr></tbody></table>
+<h2 id="tcpip">TCP/IP</h2>
+<p><img src="https://westahn.com/wp-content/uploads/2024/02/OSI7OSI4.png" alt="이미지"></p>
+<p>TCP와 IP는 대부분의 인터넷 기반 응용 프로그램 및 서비스에서 사용되는 기본 통신 프로토콜이다.</p>
+<p>TCP와 IP를 하나로 묶어서 얘기하는 이유는 위에서 이야기 했듯 기본적으로 둘의 조합을 많이 사용하기 때문이다.</p>
+<p>패킷을 보낼 때 IP를 사용하여 최대한 빨리 패킷을 전송하고 TCP를 활용해서 패킷을 안전하게 수신받는다.</p>
+<blockquote>
+<p>TCP/IP 처럼 복수의 프로토콜 집합을 프로토콜 스택(Protocol Stack) 혹은 프로토콜 스위트(Protocol Suite)라고 한다.</p>
+</blockquote> </article>  </main> </body></html>
