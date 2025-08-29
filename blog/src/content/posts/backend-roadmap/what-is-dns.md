@@ -1,5 +1,5 @@
 ---
-title: "도메인 이름과 DNS"
+title: "04. 도메인 이름과 DNS"
 tags: ["cs", "backend", "network"]
 upload: "2025-08-27"
 ---

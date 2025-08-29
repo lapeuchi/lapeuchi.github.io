@@ -1,5 +1,5 @@
 ---
-title: "인터넷은 어떻게 동작할까?"
+title: "01. 인터넷은 어떻게 동작할까?"
 tags: ["cs", "backend", "network"]
 upload: "2025-08-27"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "IP 주소?"
+title: "03. IP 주소?"
 tags: ["cs", "backend", "network"]
 upload: "2025-08-27"
 ---

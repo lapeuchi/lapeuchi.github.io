@@ -1,5 +1,5 @@
 ---
-title: "TCP/IP 그리고 TCP와 UDP의 차이가 뭘까요"
+title: "05. TCP/IP 그리고 TCP와 UDP의 차이가 뭘까요"
 tags: ["cs", "backend", "network"]
 upload: "2025-08-28"
 ---

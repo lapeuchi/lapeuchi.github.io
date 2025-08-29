@@ -1,5 +1,5 @@
 ---
-title: "프로토콜"
+title: "02. 프로토콜"
 tags: ["cs", "backend", "network"]
 upload: "2025-08-27"
 ---
