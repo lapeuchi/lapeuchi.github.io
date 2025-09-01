@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><link rel="icon" href="/assets/profile.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="DOM?"><title>DOM? | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 300px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535;--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae;--blockquote-color: rgb(255, 199, 67)}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}::-webkit-scrollbar{display:block;width:.7rem}::-webkit-scrollbar-track,::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-thumb{background-color:var(--borderColor);border-radius:10px}::-webkit-scrollbar-thumb:hover{background-color:var(--blockquote-color)}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(12)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="./">백엔드 개발자 로드맵 👉</a></h6> <h1 class="title">DOM?</h1> <span class="upload">2025-09-01</span> <div class="tags"> <span class="tag badge text-dark">cs</span><span class="tag badge text-dark">backend</span><span class="tag badge text-dark">network</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#웹-페이지가-빌드되는-과정">웹 페이지가 빌드되는 과정</a> </li><li class="level-2"> <a href="#dom-document-object-model">DOM (Document Object Model)</a> </li><li class="level-2"> <a href="#dom과-html의-차이">DOM과 HTML의 차이</a> </li><li class="level-2"> <a href="#dom이-브라우저에서-보여지는게-아니다">DOM이 브라우저에서 보여지는게 아니다.</a> </li><li class="level-2"> <a href="#dom-node와-dom-element">DOM Node와 DOM Element</a> </li><li class="level-3"> <a href="#node">Node</a> </li><li class="level-3"> <a href="#element">Element</a> </li><li class="level-2"> <a href="#javascript-dom-api">JavaScript DOM API</a> </li><li class="level-3"> <a href="#dom-프로퍼티">DOM 프로퍼티</a> </li> </ul> </div><article class="markdown-body"> <h2 id="웹-페이지가-빌드되는-과정">웹 페이지가 빌드되는 과정</h2>
+<p>DOM을 알기 전 브라우저와 렌더링 엔진이 웹 페이지를 빌드하는 과정을 알아야 한다.</p>
+<p>웹 브라우저가 HTML을 렌더링 하는 과정을 ‘critical rendering path’라고 한다.</p>
+<p>이를 크게 두 과정으로 나눌 수 있다.</p>
+<ol>
+<li>크게 브라우저가 HTML/CSS를 파싱해서 화면에 어떤 것이 보여야 하는지 결정하는 과정</li>
+<li>브라우저가 화면에 렌더링을 하는 과정</li>
+</ol>
+<p>1번 과정을 거치면 렌더트리가 만들어진다. 렌더트리는 화면에 보여지게 되는 HTML element와 그에 대응하는 스타일을 표현한 것이다.</p>
+<p>렌더트리가 만들어지기 위해서는 CSSOM(element와 연관된 스타일이 표현된 Object Model)과 DOM(element를 표현하는 Object model)이 필요하다.</p>
+<h2 id="dom-document-object-model">DOM (Document Object Model)</h2>
+<p>웹페이지에 대한 인터페이스, 우리는 DOM을 통해 웹페이지의 컨텐츠, 구조, 스타일을 읽고 조작할 수 있다.</p>
+<p>DOM은 HTML 문서를 객체 기반으로 표현한 것이다.<br>
+객체 기반이기 때문에 다양한 프로그램에서 쉽게 사용할 수 있다.</p>
+<p>DOM의 객체 구조는 ‘노드 트리’라고도 불린다. 루트의 <code>&#x3C;html></code> element로 부터 중첩된 여러 element가 뻗어나오게 되며, 말단 노드에는 각 element의 content가 있는 형태이다.</p>
+<p>HTML을 DOM으로 표현해주는 사이트 - <a href="https://software.hixie.ch/utilities/js/live-dom-viewer/">https://software.hixie.ch/utilities/js/live-dom-viewer/</a></p>
+<h2 id="dom과-html의-차이">DOM과 HTML의 차이</h2>
+<p>위 링크(Live DOM Viewer)에서 html을 작성하고 DOM의 구조를 살펴보면 DOM이 HTML 문서와 1대1 매핑되는 것 처럼 보인다.<br>
+DOM은 HTML 문서로 부터 생성되간 하지만, 항상 정확하게 같지는 않다.</p>
+<ol>
+<li>HTML이 유효하지 않을경우
+DOM은 오로지 유효한 HTML 문서에 대한 인터페이스이다. DOM을 생성하는 과정에서, 브라우저는 HTML에서 구조적인 문제가 있는 것들을 고칠 수 있다.</li>
+</ol>
+<p>예를 들어 HTML에 <code>&#x3C;head></code>와 <code>&#x3C;body></code>태그가 빠진 유효하지 않은 HTML의 경우 DOM이 알아서 head와 body를 추가해 유효한 HTML로 고친다.</p>
+<ol start="2">
+<li>DOM이 JS에 의해 수정된 경우
+DOM은 정적인 것이 아니고, 동적으로 변경될 수 있다. JS가 DOM을 변경한다고 하여서 HTML이 변경되는 것은 아니다.</li>
+</ol>
+<h2 id="dom이-브라우저에서-보여지는게-아니다">DOM이 브라우저에서 보여지는게 아니다.</h2>
+<p>브라우저에서 보이는건 렌더트리이다. 렌더트리는 DOM과 CSSOM를 합쳐서 구성된다. 렌더트리는 화면에 렌더링할 것 이외엔 관심이 없다. <code>display: none</code> 속성이 있는 element는 DOM에는 있지만 렌더트리엔 없다.<br>
+(<code>visibility: hidden</code>는 실제 화면에서 그 공간을 차지하기 때문에 렌더트리에 포함된다.)</p>
+<h2 id="dom-node와-dom-element">DOM Node와 DOM Element</h2>
+<h3 id="node">Node</h3>
+<p>DOM은 Node의 계층 구조로 이루어져 있다. 각 노드는 부모와 children을 가질 수 있다.</p>
+<p>Node Type</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">ELEMENT_NODE</span><span style="color:#6A737D"> // => 이게 아래서 설명할 Element 타입.</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">ATTRIBUTE_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">TEXT_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">CDATA_SECTION_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">PROCESSING_INSTRUCTION_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">COMMENT_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">DOCUMENT_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">DOCUMENT_TYPE_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">DOCUMENT_FRAGMENT_NODE</span></span>
+<span class="line"><span style="color:#E1E4E8">Node.</span><span style="color:#79B8FF">NOTATION_NODE</span></span></code></pre>
+<h3 id="element">Element</h3>
+<p>Element는 node의 특정 타입 즉, <code>Node.ELEMENT_NODE</code>인 것이다.</p>
+<p>element는 HTML에서 태그로 적은 노드들을 지칭한다. 예를 들어, <code>&#x3C;html></code>, <code>&#x3C;div></code>, <code>&#x3C;title></code> 과 같은 태그로 나타낸 것들은 전부 element인 것이다. 주석이나 text node와 같은 것들은 HTML 태그로 표현된 것이 아니므로 element가 아니다.</p>
+<p>JS DOM에서Node는 node의 constructor이고, HTMLElement는 element의 constructor이다.</p>
+<p>paragraph는 node이자 동시에 element이다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> paragraph</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'p'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">paragraph </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> Node</span><span style="color:#E1E4E8">;        </span><span style="color:#6A737D">// => true</span></span>
+<span class="line"><span style="color:#E1E4E8">paragraph </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> HTMLElement</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// => true</span></span></code></pre>
+<h2 id="javascript-dom-api">JavaScript DOM API</h2>
+<p>HTML은 텍스트 문서이고, DOM은 브라우저가 이를 해석해 만든 동적 객체 모델이다.
+따라서 JS로 수정할 때는 HTML이 아니라 DOM을 수정하는 것이다.</p>
+<p>선택</p>
+<ul>
+<li><code>document.getElementById("id")</code></li>
+<li><code>document.querySelector(".class")</code></li>
+</ul>
+<p>조회 / 수정</p>
+<ul>
+<li><code>element.innerHTML, element.textContent</code></li>
+<li><code>element.style.color = "red"</code></li>
+</ul>
+<p>생성 / 삽입</p>
+<ul>
+<li><code>document.createElement("div")</code></li>
+<li><code>parent.appendChild(child)</code></li>
+</ul>
+<p>삭제</p>
+<ul>
+<li><code>element.remove()</code></li>
+</ul>
+<h3 id="dom-프로퍼티">DOM 프로퍼티</h3>
+<p>node에만 있는 DOM 프로퍼티와 element에만 있는 DOM 프로퍼티를 구분할 줄 알아야 한다.</p>
+<p>다음 Node의 프로퍼티들은 node나 NodeList라고 한다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">node.parentNode; </span><span style="color:#6A737D">// Node or null</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">node.firstChild; </span><span style="color:#6A737D">// Node or null</span></span>
+<span class="line"><span style="color:#E1E4E8">node.lastChild;  </span><span style="color:#6A737D">// Node or null</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">node.childNodes; </span><span style="color:#6A737D">// NodeList</span></span></code></pre>
+<p>다음 Node의 프로퍼티들은 element나 element의 집합(HTMLCollection)이다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">node.parentElement; </span><span style="color:#6A737D">// HTMLElement or null</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">node.children;      </span><span style="color:#6A737D">// HTMLCollection, 즉 element만 가져온다. </span></span></code></pre>
+<p>DOM 조작은 렌더링에 영향을 주어 Reflow/Repaint가 발생한다.
+많은 DOM 변경을 한 번에 하면 성능 저하가 일어날 수 있다.</p>
+<p>이를 막기위한 방법으로 다음과 같은 방법이 있다.</p>
+<ol>
+<li>변경을 모아서 처리 (DocumentFragment 사용)</li>
+<li>requestAnimationFrame 활용</li>
+<li>Virtual DOM 활용 (React, Vue 등)</li>
+</ol> </article>  </main> </body></html>
