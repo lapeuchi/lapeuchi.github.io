@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><link rel="icon" href="/assets/profile.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="데이터 타입"><title>데이터 타입 | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 300px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535;--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae;--blockquote-color: rgb(255, 199, 67)}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}::-webkit-scrollbar{display:block;width:.7rem}::-webkit-scrollbar-track,::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-thumb{background-color:var(--borderColor);border-radius:10px}::-webkit-scrollbar-thumb:hover{background-color:var(--blockquote-color)}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(12)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/javascript-study"> JavaScript 공부 <small>(3)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="./">JavaScript 공부 👉</a></h6> <h1 class="title">데이터 타입</h1> <span class="upload">2025-09-03</span> <div class="tags"> <span class="tag badge text-dark">js</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#데이터-타입">데이터 타입</a> </li><li class="level-2"> <a href="#number">Number</a> </li><li class="level-2"> <a href="#string">String</a> </li><li class="level-2"> <a href="#boolean">Boolean</a> </li><li class="level-2"> <a href="#undefined">undefined</a> </li><li class="level-2"> <a href="#null">null</a> </li><li class="level-2"> <a href="#object">Object</a> </li><li class="level-3"> <a href="#map">map</a> </li><li class="level-3"> <a href="#array">array</a> </li><li class="level-2"> <a href="#typeof-키워드">typeof 키워드</a> </li> </ul> </div><article class="markdown-body"> <h2 id="데이터-타입">데이터 타입</h2>
+<p>Primitive Type이 여섯 종류가 있고 Object Type이 있다.</p>
+<p>Primitive Types</p>
+<ol>
+<li>Number (숫자): 정수, 실수, Infinity</li>
+<li>String (문자열)</li>
+<li>Boolean (불리언): true, false</li>
+<li>undefined (언디파인드): 선언만 하고 정의를 하지 않은 상태</li>
+<li>null (널): 직접 null이라고 할당을 한 상태</li>
+<li>Symbol (심볼): 유일무의한 값이 필요할 때 사용한다. 할당이 필요하면 Symbol 함수를 호출한다.</li>
+</ol>
+<ul>
+<li>ObjectType (객체): Function(함수), Array(배열), Object(객체)가 객체 타입.</li>
+</ul>
+<p>JS는 dynamic typing 언어이다. 변수 타입을 명시적으로 선언하지 않고 값에 의해 타입을 ‘추론’한다.</p>
+<h2 id="number">Number</h2>
+<p>정수, 실수를 포함하는 숫자 타입</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> age</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 32</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> tempature</span><span style="color:#F97583"> =</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> pi</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 3.14</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8">(pi)) </span><span style="color:#6A737D">//출력: number</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Infinity도 숫자</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> inf</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> Infinity</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> nInf</span><span style="color:#F97583"> =</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">Infinity</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<h2 id="string">String</h2>
+<p>문자열 타입</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> code</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'ㅁㄴㅇㄴ'</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8">(code)) </span><span style="color:#6A737D">//출력: string</span></span></code></pre>
+<h2 id="boolean">Boolean</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> isTall</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 180</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 160</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(isTall); </span><span style="color:#6A737D">//출력: true</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8">(code)); </span><span style="color:#6A737D">//출력: boolean</span></span></code></pre>
+<h2 id="undefined">undefined</h2>
+<p>선언만 하고 정의를 하지 않은 상태</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> undef;</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(undef); </span><span style="color:#6A737D">// 출력: undefined</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> undef) </span><span style="color:#6A737D">// 출력: undefined</span></span></code></pre>
+<h2 id="null">null</h2>
+<p>직접 null이라고 할당을 한 상태 타입은 null이라고 출력된다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> thisIsNull </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(undef); </span><span style="color:#6A737D">// 출력: null</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> undef) </span><span style="color:#6A737D">// 출력: object</span></span></code></pre>
+<p>typeof를 출력해 봤는데 null이 아니라 object가 나온 이유는 null이 빈 참조를 나타내는 데 자주 사용되기 때문이다. 그래서 원시 자료형으로 생각해도 되지만 엄밀히 말해서는 null은 객체이고 참조 자료형이다.</p>
+<h2 id="object">Object</h2>
+<h3 id="map">map</h3>
+<p>key:value 형태의 쌍으로 이루어져 있다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> dictionary</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    red: </span><span style="color:#9ECBFF">'레드'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    orange: </span><span style="color:#9ECBFF">'오렌지'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    yellow: </span><span style="color:#9ECBFF">'옐로'</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(dictionary);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(dictionary[</span><span style="color:#9ECBFF">'red'</span><span style="color:#E1E4E8">]); </span><span style="color:#6A737D">// 출력: 레드</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(dictionary[</span><span style="color:#9ECBFF">'orange'</span><span style="color:#E1E4E8">]); </span><span style="color:#6A737D">// 출력: 오렌지</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(dictionary[</span><span style="color:#9ECBFF">'yellow'</span><span style="color:#E1E4E8">]); </span><span style="color:#6A737D">// 출력: 옐로</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> dictionary); </span><span style="color:#6A737D">// 출력: { red: '레드', orange: '오렌지', yellow: '옐로' }</span></span></code></pre>
+<h3 id="array">array</h3>
+<p>Array 타입
+값을 리스트로 나열할 수 있음</p>
+<p>array의 index 개념
+0 부터 시작해서 1씩 올라간다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> iveMembers</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#9ECBFF">    '안유진'</span><span style="color:#E1E4E8">, </span><span style="color:#6A737D">// 0</span></span>
+<span class="line"><span style="color:#9ECBFF">    '가을'</span><span style="color:#E1E4E8">, </span><span style="color:#6A737D">// 1</span></span>
+<span class="line"><span style="color:#9ECBFF">    '레이'</span><span style="color:#E1E4E8">, </span><span style="color:#6A737D">// 2</span></span>
+<span class="line"><span style="color:#9ECBFF">    '장원영'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    '리즈'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    '이서'</span></span>
+<span class="line"><span style="color:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(iveMembers); </span><span style="color:#6A737D">// 출력: [ '안유진', '가을', '레이', '장원영', '리즈', '이서' ]</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(iveMembers[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]); </span><span style="color:#6A737D">// 출력: 안유진</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8">(iveMembers)); </span><span style="color:#6A737D">// 출력: object</span></span></code></pre>
+<h2 id="typeof-키워드">typeof 키워드</h2>
+<p>데이터 타입을 비교하는데 쓰이는 키워드 결과로 문자열을 반환한다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> a </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'number'</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// 옆에 변수를 띄어쓰거나</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8">(a) </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'number'</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// 함수처럼 ()안에 변수를 써도 된다.</span></span></code></pre> </article>  </main> </body></html>
