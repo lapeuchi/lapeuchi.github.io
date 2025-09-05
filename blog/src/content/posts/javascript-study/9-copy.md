@@ -59,16 +59,16 @@ const yuJin3 = {
 console.log(yuJin3); // 출력: { year: 2003, name: '안유진', group: '아이브' }
 
 const yuJin4 = {
-    name: '코드팩토리',
+    name: 'lapeuchi',
     ...yuJin,
 };
 console.log(yuJin4); // 출력: { name: '안유진', group: '아이브' }
 
 const yuJin5 = {
     ...yuJin,
-    name: '코드팩토리',
+    name: 'lapeuchi',
 }
-console.log(yuJin5); // 출력: { name: '코드팩토리', group: '아이브' }
+console.log(yuJin5); // 출력: { name: 'lapeuchi', group: '아이브' }
 
 const numbers = [1, 3, 5];
 const numbers2 = [
