@@ -77,7 +77,7 @@ console.log(yuJin2); // 출력: { name: '안유진', group: '뉴 네오 아이�
 1. 객체 자체를 변경할 수 없다.
 2. 객체 안의 프로퍼티나 메서드는 변경할 수 있다.
 
-## Object 멤버 메소드
+## Object의 모든 키값과 벨류값을 가져오는 법
 
 ```js
 const wonYoung = {
