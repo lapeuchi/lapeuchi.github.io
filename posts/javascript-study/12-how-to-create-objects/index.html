@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><link rel="icon" href="/assets/profile.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="객체(objects) 타입을 만드는 3가지 방법"><title>객체(objects) 타입을 만드는 3가지 방법 | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 300px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535;--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae;--blockquote-color: rgb(255, 199, 67)}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}::-webkit-scrollbar{display:block;width:.7rem}::-webkit-scrollbar-track,::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-thumb{background-color:var(--borderColor);border-radius:10px}::-webkit-scrollbar-thumb:hover{background-color:var(--blockquote-color)}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(12)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/javascript-study"> JavaScript 공부 <small>(13)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="./">JavaScript 공부 👉</a></h6> <h1 class="title">객체(objects) 타입을 만드는 3가지 방법</h1> <span class="upload">2025-09-08</span> <div class="tags"> <span class="tag badge text-dark">js</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#개요">개요</a> </li><li class="level-2"> <a href="#1-object를-작성하고-객체를-생성하는-방법">1. object를 작성하고 객체를 생성하는 방법</a> </li><li class="level-2"> <a href="#class와-new-키워드를-이용한-방법">class와 new 키워드를 이용한 방법</a> </li><li class="level-2"> <a href="#함수로-만들기">함수로 만들기</a> </li> </ul> </div><article class="markdown-body"> <h2 id="개요">개요</h2>
+<p>js를 공부하면서 object 타입에 대해 혼란스러운 부분이 있었다.</p>
+<ol>
+<li>아래 방법처렴 object를 작성하고 객체를 생성하는 방법</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    year: </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<ol start="2">
+<li>class와 new 키워드를 사용하는 방법</li>
+</ol>
+<p>1번 방법에서 object를 생성하고 객체를 생성하는 것이라고 익혀놔서 object와 객체는 같은 의미인데도 불구하고 두 방법을 누구는 객체라 그러고 누구는 오브젝트라 그래서 둘이 다른건가 싶었다.</p>
+<p>결론은 똑같은 object 타입이고 그냥 만드는 방식만 다른것 뿐이었다.</p>
+<p>object 타입의 데이터를 생성하는 3가지 방법과 차이점에 대해 알아보자.</p>
+<h2 id="1-object를-작성하고-객체를-생성하는-방법">1. object를 작성하고 객체를 생성하는 방법</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    year: </span><span style="color:#79B8FF">2003</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin) </span><span style="color:#6A737D">// 출력: { name: '안유진', year: 2003 }</span></span></code></pre>
+<h2 id="class와-new-키워드를-이용한-방법">class와 new 키워드를 이용한 방법</h2>
+<p>object를 작성하고 객체를 생성하는 방법과 차이점은 <strong>출력할 때 클래스 타입이 앞에 출력된다.</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// IdolModel { name: '안유진', year: 2003 }</span></span></code></pre>
+<h2 id="함수로-만들기">함수로 만들기</h2>
+<p>클래스가 있기 전 버전부터 사용되던 오래된 방법이다. 그 만큼 클래스와 유사한 부분이 있다.</p>
+<p>생성자를 만들듯이 구조를 만들어서 new로 객체를 생성할 수 있다.</p>
+<p>클래스를 작성할 때 생성자에서 this 키워드를 사용해 선언부의 프로퍼티 작성을 생략하듯이 함수 안에서 this 키워드를 사용한다.</p>
+<p>클래스 방식처럼 <strong>출력할 때 함수 이름이 앞에 출력된다.</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> IdolFunction</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> gaEul</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolFunction</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'가을'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2002</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(gaEul); </span><span style="color:#6A737D">// IdolFunction { name: '가을', year: 2002 }</span></span></code></pre> </article>  </main> </body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><link rel="icon" href="/assets/profile.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="class"><title>class | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 300px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535;--blockquote-color: rgb(124, 199, 113)}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae;--blockquote-color: rgb(255, 199, 67)}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}::-webkit-scrollbar{display:block;width:.7rem}::-webkit-scrollbar-track,::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-thumb{background-color:var(--borderColor);border-radius:10px}::-webkit-scrollbar-thumb:hover{background-color:var(--blockquote-color)}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(12)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/javascript-study"> JavaScript 공부 <small>(13)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="./">JavaScript 공부 👉</a></h6> <h1 class="title">class</h1> <span class="upload">2025-09-08</span> <div class="tags"> <span class="tag badge text-dark">js</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#클래스-선언">클래스 선언</a> </li><li class="level-2"> <a href="#get과-set">get과 set</a> </li><li class="level-2"> <a href="#static">static</a> </li><li class="level-3"> <a href="#static-키워드의-활용-factory-constructor">static 키워드의  활용: factory constructor</a> </li><li class="level-2"> <a href="#상속">상속</a> </li><li class="level-3"> <a href="#super와-override">super와 override</a> </li> </ul> </div><article class="markdown-body"> <h2 id="클래스-선언">클래스 선언</h2>
+<blockquote>
+<p>private 프로퍼티를 사용하려면 프로퍼티 앞에 ’#‘를 붙이면 된다.
+get을 제외한 모든 행동에서 private 프로퍼티를 참조할 수 없다.</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// 프로퍼티</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    #phone</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// private 프로퍼티</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){ </span><span style="color:#6A737D">// 생성자</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="get과-set">get과 set</h2>
+<ul>
+<li>getter의 용도</li>
+</ul>
+<ol>
+<li>데이터를 가공해서 새로운 데이터를 반환할때</li>
+<li>private한 값을 반환할 때</li>
+</ol>
+<ul>
+<li>setter 작성 방법</li>
+<li>무조건 파라메터가 ‘하나’ 있어야한다.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    get</span><span style="color:#B392F0"> nameAndYear</span><span style="color:#E1E4E8">(){ </span><span style="color:#6A737D">// getter</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> `${</span><span style="color:#79B8FF">this</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">name</span><span style="color:#9ECBFF">}-${</span><span style="color:#79B8FF">this</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">year</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    set</span><span style="color:#B392F0"> getName</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    set</span><span style="color:#B392F0"> setName</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">){ </span><span style="color:#6A737D">// setter</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin); </span><span style="color:#6A737D">// 출력: IdolModel { name: '안유진', year: 2003 }</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin.nameAndYear); </span><span style="color:#6A737D">// 출력: 안유진-2003</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">yuJin.setName </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '장원영'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin); </span><span style="color:#6A737D">// 출력: // IdolModel { name: '장원영', year: 2003 }</span></span></code></pre>
+<h2 id="static">static</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    static</span><span style="color:#FFAB70"> groupName</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> '아이브'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    static</span><span style="color:#B392F0"> returnGroupName</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> '아이브'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// static 프로퍼티는 객체에 귀속되지 않는다. 클래스에 귀속되는 것이다. 아래 코드를 실행해보면 groupName이 출력되지 않고 있다.</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin); </span><span style="color:#6A737D">// 출력: IdolModel { name: '안유진', year: 2003 }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(IdolModel.groupName); </span><span style="color:#6A737D">// 출력: 아이브</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(IdolModel.</span><span style="color:#B392F0">returnGroupName</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// 출력: 아이브</span></span></code></pre>
+<h3 id="static-키워드의--활용-factory-constructor">static 키워드의  활용: factory constructor</h3>
+<p>static 메소드로 객체를 만들어 반환하는 방식이 많이 쓰인다고 한다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    static</span><span style="color:#B392F0"> fromObject</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">object</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">            object.name,</span></span>
+<span class="line"><span style="color:#E1E4E8">            object.year,</span></span>
+<span class="line"><span style="color:#E1E4E8">        );</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    static</span><span style="color:#B392F0"> fromList</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">list</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">            list[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">            list[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">        );</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin2</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> IdolModel.</span><span style="color:#B392F0">fromObject</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    year: </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin2); </span><span style="color:#6A737D">// 출력: IdolModel { name: '안유진', year: 2003 }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> wonYoung</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> IdolModel.</span><span style="color:#B392F0">fromList</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">    [</span></span>
+<span class="line"><span style="color:#9ECBFF">        '장원영'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        2003</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(wonYoung); </span><span style="color:#6A737D">// 출력: IdolModel { name: '장원영', year: 2003 }</span></span></code></pre>
+<h2 id="상속">상속</h2>
+<p>상속 키워드는 ‘extends’를 사용한다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">    dance</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> '여자 아이돌이 춤을 춥니다.'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> MaleIdolModel</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">    sing</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> '남자 아이돌이 노래를 부릅니다.'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin); </span><span style="color:#6A737D">// FemaleIdolModel { name: '안유진', year: 2003 }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> jiMin</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> MaleIdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'지민'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1995</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(jiMin); </span><span style="color:#6A737D">// MaleIdolModel { name: '지민', year: 1995 }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin.</span><span style="color:#B392F0">dance</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// 여자 아이돌이 춤을 춥니다.</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin.name); </span><span style="color:#6A737D">// 안유진</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(jiMin.</span><span style="color:#B392F0">sing</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// 남자 아이돌이 노래를 부릅니다.</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(jiMin.year); </span><span style="color:#6A737D">// 1995</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> cf</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'lapeuchi'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1992</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(cf);  </span><span style="color:#6A737D">// IdolModel { name: 'lapeuchi', year: 1992 }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(cf.name); </span><span style="color:#6A737D">// lapeuchi</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// true</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// true</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> MaleIdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'----------'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(jiMin </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// true</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(jiMin </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// false</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(jiMin </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> MaleIdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'-------------'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(cf </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// true</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(cf </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// false</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(cf </span><span style="color:#F97583">instanceof</span><span style="color:#B392F0"> MaleIdolModel</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// false</span></span></code></pre>
+<h3 id="super와-override">super와 override</h3>
+<ul>
+<li>
+<p>super는 부모 클래스를 의미한다. 부모클래스의 메소드나 프로퍼티를 참조할 때 쓸 수 있겠다.</p>
+</li>
+<li>
+<p>메소드를 override를 할 때 키워드는 따로 없다. 그냥 같은 이름으로 메소드를 작성하면 된다.</p>
+</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    year</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.year </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> year;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">    sayHello</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> `안녕하세요 ${</span><span style="color:#79B8FF">this</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">name</span><span style="color:#9ECBFF">}입니다.`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#6A737D">    // 노래 / 춤 </span></span>
+<span class="line"><span style="color:#FFAB70">    part</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">name</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">year</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">part</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">        super</span><span style="color:#E1E4E8">(name, year);</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.part </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> part;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">    sayHello</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> `${</span><span style="color:#79B8FF">super</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">sayHello</span><span style="color:#9ECBFF">()</span><span style="color:#9ECBFF">} ${</span><span style="color:#79B8FF">this</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">part</span><span style="color:#9ECBFF">}를 맡고있습니다.`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> yuJin</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> FemaleIdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'안유진'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2003</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'보컬'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin); </span><span style="color:#6A737D">// FemaleIdolModel { name: '안유진', year: 2003, part: '보컬' }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> wonYoung</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IdolModel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'장원영'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2002</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(wonYoung); </span><span style="color:#6A737D">// IdolModel { name: '장원영', year: 2002 }</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(wonYoung.</span><span style="color:#B392F0">sayHello</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// 안녕하세요 장원영입니다.</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(yuJin.</span><span style="color:#B392F0">sayHello</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// 안녕하세요 안유진입니다. 보컬를 맡고있습니다.</span></span></code></pre> </article>  </main> </body></html>
