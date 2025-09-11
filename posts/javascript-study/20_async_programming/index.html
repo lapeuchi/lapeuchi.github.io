@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="ko"> <head><!-- 테마 적용 --><script>
+    (function () {
+    try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('theme', theme);
+    } catch (_) {}
+    })();
+</script> <!-- 테마 변경 코드 --><script src="/utils/theme.js" defer></script><!-- bootstrap cdn --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><!-- 수학 수식 표현 --><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'none' // 수식 넘버 제거
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script> <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- 구글 애드센스 --><meta name="google-adsense-account" content="ca-pub-3865242689879019"><!-- 구글 서치콘솔 --><meta name="google-site-verification" content="MwfqsNGEL4f3sWJ8YANsgk5tO7IOgc_UVKIDhZC12r4"><!-- 기본 설정 --><link rel="icon" href="/assets/profile.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="JS의 비동기 프로그래밍"><title>JS의 비동기 프로그래밍 | Lapeuchi&#39;s Devlog</title><style>:root{--sidebar-width: 300px;--navbar-height: 50px;--bgColor: #ffffff;--normal-textColor: #000000;--hover-textColor: #00b3ff;--fade-textColor: #5a5a5a;--borderColor: #353535;--blockquote-color: rgb(124, 199, 113);--boxColor: rgb(199, 199, 199)}:root[theme=dark]{--bgColor: #373C3F;--normal-textColor: #ffffff;--fade-textColor: #b3b3b3;--borderColor: #aeaeae;--blockquote-color: rgb(255, 199, 67);--boxColor: rgb(48, 48, 48)}body{margin:0;min-height:100vh;display:flex;flex-direction:row;background-color:var(--bgColor);color:var(--normal-textColor);transition:color .3s ease;transition:background-color .3s ease}::-webkit-scrollbar{display:block;width:.7rem}::-webkit-scrollbar-track,::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-thumb{background-color:var(--borderColor);border-radius:10px}::-webkit-scrollbar-thumb:hover{background-color:var(--blockquote-color)}a{color:var(--normal-textColor);transition:color .3s ease;text-decoration:none}a:hover{color:var(--hover-textColor);transition:color .3s ease;transform:scale(1.03);text-decoration:none}main{margin-left:var(--sidebar-width);padding:4rem 2.6rem;flex-grow:1}.sidebar-only{display:block}.navbar-only{display:none}@media (max-width: 700px){body{flex-direction:column}main{margin-left:0!important}.sidebar-only{display:none!important}.navbar-only{display:block!important}}.custom-navbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;border-bottom:1px solid var(--borderColor)}.custom-navbar-title{margin:0;font-size:1.25rem;font-weight:700;cursor:pointer}.custom-navbar-list{display:flex;list-style:none;gap:1.25rem;margin:0;padding:0}.sidebar{height:100%;width:var(--sidebar-width);top:0;left:0;padding:1rem;display:flex;flex-direction:column;position:fixed;overflow-y:auto;z-index:1000;border-right:1px solid var(--borderColor);box-shadow:#00000080}.profile{margin-top:2rem;text-align:center}.profile .profileImg{margin-bottom:.7rem;border-radius:50%;width:6rem;height:6rem}.profile .nickname{margin-bottom:6px;cursor:pointer}.profile .email{display:block;margin-bottom:.4rem}.profile .sns-icons i{display:inline;font-size:20px;color:var(--text-color)}.sidebar-menu li{margin-bottom:.4rem;list-style:none}.sidebar-head{color:var(--text-color)}
+:root{--tag-background: rgb(233, 233, 233)}:root[theme=dark]{--tag-background: rgb(242, 242, 242)}.title{margin-bottom:.7rem}.tags{margin-bottom:2rem}.tag{margin-right:.25rem;background-color:var(--tag-background)}.index{padding:1rem;border-radius:.5rem;font-size:.9rem;background:#2c2f33;margin-bottom:40px}.index ul{padding-left:0;margin:0;list-style:none}.index li{margin-bottom:.3rem}.index li.level-3{margin-left:1rem;font-size:.85em}.index a{color:#ccc;text-decoration:none}.index a:hover{text-decoration:underline}.markdown-body img{display:block;max-width:52%;max-height:28vh;width:auto;height:auto;margin:1rem 0;object-fit:contain}.markdown-body h2{margin-top:3rem;margin-bottom:1rem;border-bottom:1px solid #868686;font-size:1.7rem}.markdown-body h3{margin-top:2rem;margin-bottom:1rem;font-size:1.4rem}.markdown-body blockquote{margin-bottom:2rem;margin-top:2rem;padding-left:1rem;padding-top:.4rem;padding-bottom:.4rem;border-left:5px solid var(--blockquote-color);border-top-right-radius:10px;border-bottom-right-radius:10px;background-color:#b2b2b232}.markdown-body blockquote p{margin-top:.5rem;margin-bottom:.5rem}.markdown-body table{border-collapse:collapse;margin:1rem 0;font-size:.95rem}.markdown-body th,.markdown-body td{border:1px solid #ccc;padding:.5rem}.markdown-body thead{font-weight:700;text-align:center;color:var(--textColor)}.markdown-body a{text-decoration:underline;font-weight:700}pre{border-radius:8px;padding:1rem}
+</style><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"></head> <body> <!-- 넓을 땐 사이드바 --> <div class="sidebar-only"> <div class="sidebar"> <!-- 프로필 --> <div class="profile"> <img class="profileImg" src="/assets/profile.jpg" alt="프사"> <h5 class="nickname" id="themeToggle"></h5> <span class="email"> <a href="mailto:lapeuchi@email.com">
+lapeuchi@email.com
+</a> </span> <div class="sns-icons row row-cols-3 g-2"> <div class="col text-center"> <a href="https://github.com/lapeuchi" target="_blank" rel="noreferrer"> <i class="bi bi-github"></i> </a> </div><div class="col text-center"> <a href="https://www.youtube.com/@lapeuch_dligt" target="_blank" rel="noreferrer"> <i class="bi bi-youtube"></i> </a> </div><div class="col text-center"> <a href="mailto:lapeuchi@email.com" target="_blank" rel="noreferrer"> <i class="bi bi-gift"></i> </a> </div> </div> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">페이지</h5> <ul> <li><a href="/">홈</a></li> <li><a href="/postList">게시물 목록</a></li> </ul> </div> <hr> <div class="sidebar-menu"> <h5 class="sidebar-head">시리즈</h5> <ul> <li> <a href="/posts/backend-roadmap"> 백엔드 개발자 로드맵 <small>(12)</small> </a> </li><li> <a href="/posts/algorithm"> 알고리즘 <small>(2)</small> </a> </li><li> <a href="/posts/computer-science"> 컴퓨터공학 <small>(4)</small> </a> </li><li> <a href="/posts/cpp"> C++ <small>(4)</small> </a> </li><li> <a href="/posts/csharp"> C# <small>(48)</small> </a> </li><li> <a href="/posts/engineer-information-processing"> 정보처리기사 <small>(1)</small> </a> </li><li> <a href="/posts/javascript-study"> JavaScript 공부 <small>(22)</small> </a> </li><li> <a href="/posts/math"> 수학공부 <small>(5)</small> </a> </li><li> <a href="/posts/unity-study"> Unity 공부할까요 <small>(10)</small> </a> </li> </ul> </div> </div> </div> <!-- 좁을 땐 네비바 --> <div class="navbar-only"> <nav class="custom-navbar"> <h6 class="custom-navbar-title" id="themeToggle"></h6> <ul class="custom-navbar-list"> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/">홈</a> </li> <li class="custom-navbar-item"> <a class="custom-navbar-link" href="/postList">게시물 목록</a> </li> </ul> </nav> </div> <main>  <h6><a href="../">JavaScript 공부 👉</a></h6> <h1 class="title">JS의 비동기 프로그래밍</h1> <span class="upload">2025-09-11</span> <div class="tags"> <span class="tag badge text-dark">js</span> </div> <div class="index"> <h5 class="text-white">📑 목차</h5> <ul> <li class="level-2"> <a href="#개요">개요</a> </li><li class="level-2"> <a href="#sync-programming-동기-프로그래밍">Sync Programming (동기 프로그래밍)</a> </li><li class="level-2"> <a href="#async-programming">Async Programming</a> </li><li class="level-2"> <a href="#event-loop">Event Loop</a> </li> </ul> </div><article class="markdown-body"> <h2 id="개요">개요</h2>
+<p>JS는 싱글스레드이다. 어느 한 순간에 동시에 단 하나의 작업만 실행 할 수 있다.
+이 단점을 비동기 프로그래밍으로 어느정도 극복할 수 있다.</p>
+<h2 id="sync-programming-동기-프로그래밍">Sync Programming (동기 프로그래밍)</h2>
+<p>오래 걸리는 작업을 표현하기 위해 2초간 반복문을 실행하는 함수를 작성한 것이다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> longWork</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> now</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> milliseconds</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> now.</span><span style="color:#B392F0">getTime</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6A737D">    // 2초 </span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> afterTwoSeconds</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> milliseconds </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583"> *</span><span style="color:#79B8FF"> 1000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">    // 2초가 지나면 반복 종료</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">getTime</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> afterTwoSeconds){</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'완료'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Hello'</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// Hello</span></span>
+<span class="line"><span style="color:#B392F0">longWork</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// 완료</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'World'</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// World</span></span></code></pre>
+<p>프로그램을 실행하면
+‘Hello’가 출력되고 longWork()의 긴 작업이 끝나는 2초 정도 후 ‘완료’가 출력되고 함수가 종료된다. 마침내 ‘World’가 출력됨을 확인할 수 있다.</p>
+<p>우리가 큰 서비스를 개발하개 되었을 때, 동기 프로그래밍만 한다면 긴 작업이 생겼을 때 사용자가 대기하는 상황이 많아질 것이다.</p>
+<h2 id="async-programming">Async Programming</h2>
+<p>비동기 프로그래밍을 통해 싱글스레드로 자바스크립트 런타임을 실행하더라도 효율적으로 스레드를 사용할 수 있다.
+비동기 프로그래밍을 하면 긴 작업을 하는동안 다른 작업을 할 수 있게 해준다.</p>
+<p>JS에서 기본으로 제공해주는 함수인 <code>setTimeout(callback, time)</code>가 있다. time 후에 callback을 실행해주는 역할을 한다. <code>setTimeout</code>은 비동기로 실행되는 함수이다.</p>
+<p>아래는 setTimeout()으로 2초 후 ‘완료’를 출력하는 함수를 작성한 것이다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> longWork</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#B392F0">    setTimeout</span><span style="color:#E1E4E8">(()</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#E1E4E8">        console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'완료'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }, </span><span style="color:#79B8FF">2000</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Hello'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">longWork</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'World'</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p>출력 결과</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Hello</span></span>
+<span class="line"><span>World</span></span>
+<span class="line"><span>완료</span></span></code></pre>
+<p>동기 프로그래밍 예제 처럼 2초를 기다리라고 한건 똑같은데 출력 순서는 바뀌었다.
+longWork()가 종료되고 ‘완료’ 출력되었음을 알 수 있다.</p>
+<p>setTimeout은 2초 뒤에 ‘완료’를 출력하려고 한다. 그 2초의 시간 동안 스레드를 사용할 수 있게된다.</p>
+<h2 id="event-loop">Event Loop</h2>
+<p>결론은 비동기 프로그래밍을 통해 싱글스레드로 자바스크립트 런타임을 실행하더라도 효율적으로 스레드를 사용할 수 있다는 것이다.</p>
+<p>실제로 이 효율이라는게 어디서 나오는지 확인해보자.</p>
+<p>우선 Event Loop의 개념을 알아햐 한다.</p>
+<p>JS 엔진은 싱글 스레드이다. 스레드, 메모리 힙, 콜 스택 모두 하나씩 있다.</p>
+<p>동기 함수 A(), C()와 비동기 함수 B()가 있다고 생각해보자.</p>
+<p>동기 함수 A()를 호출하면 콜스택에 올라간다. A() 실행 중 비동기 함수인 B()가 호출되어 콜스택에 올라간 상황이라고 생각해보자.</p>
+<p>비동기 함수가 실행되면 call stack에서 Task Queue(또는 Event Queue)로 옮겨진다.
+비동기 함수가 call stack에서 빠져나왔기 때문에 call stack을 막고 있지 않게 된다.
+그래서 비동기 함수 B()의 작업을 수행할 수 있는 것이다.</p>
+<p>setTimeout()에서 2초를 기다리라 했었을 때, queue 안에서 2초 기다리고 있는 것이다.</p>
+<p>이 상황에 C()를 호출하여 call stack에 들어갔다 금방 끝나 빠져나왔다고 하자.</p>
+<p>B()가 동기 함수였다면 차례대로 A, B, C가 콜스택에 쌓이고 C, B, A 순서로 종료되었을 텐데</p>
+<p>B()가 비동기 함수여서 B() 실행 전 까지 C()가 종료되고 A()까지 종료될 수 있다.</p>
+<p>JS 런타임이 생성되는 순간 이벤트 루프가 생성되는데 이벤트 루프는 task queue를 바라보며 종료된 함수를 계속 체크를 한다.
+queue에서 끝난 함수가 있으면 다시 콜스택으로 옮긴다. B()가 올라가면서 B() 안의 비동기 작업이 끝났으니 B()안의 동기로 실행될 작업이 시작된다. 그리고 끝나면 call stack에서 내려간다.</p>
+<p>이게 event loop이다.</p>
+<p>함수에 비동기 작업이 있으면 Call Stack에서 Task Queue로 넘어갔다 비동기 작업이 끝나면 다시 돌아오는 과정이 event loop이다.</p> </article>  </main> </body></html>
