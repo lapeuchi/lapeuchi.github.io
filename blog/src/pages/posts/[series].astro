@@ -30,22 +30,24 @@ export async function getStaticPaths() {
     
     {seriesData.posts.map(post => (
       <div class="post">
-        
-          <a href={`/posts/${seriesId}/${post.slug}`} class="h5 text-white text-decoration-none">
+
+          <a href={`/posts/${seriesId}/${post.slug}`} class="postName">
             {post.title}
           </a>
 
+          
+
           {post.tags.length > 0 && (
-            <div class="mt-1">
+            <span class="tags">
               {post.tags.map(tag => (
-                <span class="badge bg-light text-dark me-1">{tag}</span>
+                <span class="tag ">{tag}</span>
               ))}
+            </span>
+
+            <div class="uploadDate">
+            {post.date}
             </div>
           )}
-
-          <div class="upload">
-            {post.date}
-          </div>
         
       </div>
     ))}

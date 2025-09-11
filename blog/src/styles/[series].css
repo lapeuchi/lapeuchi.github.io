@@ -16,25 +16,55 @@
     margin-bottom: 0px;
 }
 
-
-.post {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    
-    border-style: solid;
-    border-radius: 8px;
-
-    background-color: rgb(48, 48, 48);;
-}
-
 .postLength {
     font-size: 0.94rem;
 
     color: var(--fade-textColor);
 }
 
-.upload {
-    font-size: 0.9rem;
 
-    color: rgba(255, 255, 255, 0.629);;
+.post {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    
+    border-style: solid;
+    border-radius: 8px;
+    
+    border-color: var(--normal-textColor);
+    
+    background-color: var(--boxColor)
+    
 }
+
+.postName {
+    display: inline;
+    text-decoration: none;
+    color: var(--normal-textColor);
+}
+
+.uploadDate {
+    font-size: 0.9rem;
+    color: var(--normal-textColor);
+    
+    display: block;
+}
+
+.tags {
+    float: right;
+}
+
+.tag {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+
+    margin-right: 0.2rem;
+    
+    border: 2px solid black;
+    border-radius: 8px;
+
+    color: black;
+    background-color: white;
+    text-align: center;
+}   
