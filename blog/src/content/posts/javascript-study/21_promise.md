@@ -29,9 +29,10 @@ promise의 콜백에서 resolve()를 호출하면 then의 콜백이 실행되고
 > Promise(callback(resolve, reject)): 함수 안에 콜백이 들어간다.
 > * resolve: then의 콜백을 호출하는 함수이다. then에 인자를 넘겨줄 수 있다.
 > * reject: resolve와 다른 경우(error 발생, 등)의 인자를 then에 넘겨줄 수 있다.
-> * promise.then(callback(res)): Promise에 넣은 콜백에서 resolve() 혹은 reject()가 실행되면 호출되는 콜백을 매개변수로 받는다.
+> * promise.then(callback(res)): resolve()가 실행되면 호출되는 콜백을 매개변수로 받는다.
+> * promise.carch(callback(res)): reject()가 실행되면 호출되는 콜백을 매개변수로 받는다.
+> * promise.finally(callback): then이나 catch의 콜백이 종료되면 finally의 콜백이 실행된다. 
 ```js
-
 let isResolved = true;
 
 const timeoutPromise = new Promise((resolve, reject) => {
@@ -84,3 +85,33 @@ getPromise(3)
         //return getPromise(...
     });
 ```
+
+### promise.all
+
+promise를 반환하는 방법보다 훨씬 유용하게 사용할 수 있는 방법이다.
+
+인자로 넣은 배열 안에 모든 함수는 동시에 실행되며 모두 종료되면 then이나 catch가 시작된다.
+```js
+const getPromise = (seconds) => new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('완료');
+    }, seconds);
+});
+
+Promise.all([
+    getPromise(1),
+    getPromise(4),
+    getPromise(1),
+]).then((res)=>{
+    console.log(res);
+}).catch((res)=> {
+    console.log(res);
+});
+```
+출력 결과
+```
+['완료', '완료', '완료']
+```
+
+만약 reject()가 하나라도 발생했다면 catch가 실행되고 그 뒤의 콜백은 실행되지 않는다.
+예시의 경우에는 '에러' 하나가 출력되고 끝날 것이다.
